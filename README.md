@@ -2,6 +2,7 @@
 Animate is an interpreter written in Python which reads a timed sequence of commands from an Excel file and a number of bitmap images, and then composes movie frames with these commands. It can make simple animations, but also much more complex ones.
 
 ![Introduction](pictures\bulldozer_bucket.gif)
+[Introduction](pictures\bulldozer_bucket.gif)
 
 Features:
 * it can handle location, rotation, scale and opacity of many images in parallel
@@ -111,6 +112,7 @@ Remarks:
 A `SCRIPT` can look like this:
 
 ![](pictures\script_bulldozer.png)
+[Bulldozer](pictures\script_bulldozer.png)
 
 This script contains 4 images, all of them showing an item at their default position in the image without transformation:
 1. Background.png
