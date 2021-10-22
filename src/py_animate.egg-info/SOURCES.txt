@@ -1,0 +1,15 @@
+LICENSE
+pyproject.toml
+setup.cfg
+src/Animate/Animate.py
+src/Animate/Constants.py
+src/Animate/DirectoryList.py
+src/Animate/Frames.py
+src/Animate/Items.py
+src/Animate/Properties.py
+src/Animate/Scripts.py
+src/Animate/__init__.py
+src/py_animate.egg-info/PKG-INFO
+src/py_animate.egg-info/SOURCES.txt
+src/py_animate.egg-info/dependency_links.txt
+src/py_animate.egg-info/top_level.txt

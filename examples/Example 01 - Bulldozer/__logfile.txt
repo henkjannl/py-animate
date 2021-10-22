@@ -1,0 +1,454 @@
+DEBUG:root:### PARSING SCRIPTS  ###
+DEBUG:root:  Script.__init__(Bulldozer.xlsx, Script)
+DEBUG:root:  Script.ParseScript(Bulldozer.xlsx, Script)
+DEBUG:root:### PARSING SCRIPTS  ###
+DEBUG:root:  Script.__init__(Bulldozer.xls, Script)
+DEBUG:root:  Script.ParseScript(Bulldozer.xls, Script)
+DEBUG:root:### CHECKING SCRIPTS  ###
+DEBUG:root:
+DEBUG:root:* DEPLOYING SCRIPT Script
+DEBUG:root:### GENERATING IMAGES  ###
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00000 at time 0.00
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'tEXt' 78 25
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 115 3190
+DEBUG:root:  - Item Script:BULLDOZER xpos= -380.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'tEXt' 78 25
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 115 8192
+DEBUG:root:  - Item Script:HEAP xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'tEXt' 78 25
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 115 4730
+DEBUG:root:  - Item Script:CLOUD xpos= 264.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'tEXt' 78 25
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 115 7307
+DEBUG:root:  Frame Frame00000.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00001 at time 0.10
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= -362.17 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= 246.58 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00001.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00002 at time 0.20
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= -344.33 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= 229.17 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00002.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00003 at time 0.30
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= -326.50 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= 211.75 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00003.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00004 at time 0.40
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= -308.67 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= 194.33 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00004.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00005 at time 0.50
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= -290.83 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= 176.92 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00005.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00006 at time 0.60
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= -273.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= 159.50 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00006.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00007 at time 0.70
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= -255.17 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= 142.08 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00007.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00008 at time 0.80
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= -237.33 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= 124.67 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00008.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00009 at time 0.90
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= -219.50 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= 107.25 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00009.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00010 at time 1.00
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= -201.67 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= 89.83 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00010.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00011 at time 1.10
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= -183.83 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= 72.42 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00011.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00012 at time 1.20
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= -166.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= 55.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00012.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00013 at time 1.30
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= -148.17 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= 37.58 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00013.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00014 at time 1.40
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= -130.33 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= 20.17 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00014.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00015 at time 1.50
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= -112.50 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= 2.75 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00015.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00016 at time 1.60
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= -94.67 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -14.67 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00016.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00017 at time 1.70
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= -76.83 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -32.08 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00017.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00018 at time 1.80
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= -59.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -49.50 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00018.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00019 at time 1.90
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= -41.17 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -66.92 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00019.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00020 at time 2.00
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= -23.33 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -84.33 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00020.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00021 at time 2.10
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= -5.50 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -101.75 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00021.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00022 at time 2.20
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 12.33 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 12.33 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -119.17 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00022.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00023 at time 2.30
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 30.17 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 30.17 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -136.58 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00023.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00024 at time 2.40
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 48.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 48.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -154.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00024.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00025 at time 2.50
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 65.83 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 65.83 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -171.42 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00025.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00026 at time 2.60
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 83.67 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 83.67 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -188.83 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00026.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00027 at time 2.70
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 101.50 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 101.50 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -206.25 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00027.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00028 at time 2.80
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 119.33 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 119.33 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -223.67 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00028.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00029 at time 2.90
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 137.17 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 137.17 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -241.08 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00029.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00030 at time 3.00
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 155.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 155.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -258.50 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00030.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00031 at time 3.10
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 172.83 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 172.83 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -275.92 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00031.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00032 at time 3.20
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 190.67 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 190.67 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -293.33 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00032.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00033 at time 3.30
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 208.50 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 208.50 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -310.75 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00033.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00034 at time 3.40
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 226.33 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 226.33 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -328.17 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00034.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00035 at time 3.50
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 244.17 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 244.17 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -345.58 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00035.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00036 at time 3.60
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 262.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 262.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -363.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00036.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00037 at time 3.70
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 279.83 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 279.83 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -380.42 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00037.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00038 at time 3.80
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 297.67 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 297.67 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -397.83 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00038.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00039 at time 3.90
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 315.50 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 315.50 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -415.25 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00039.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00040 at time 4.00
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 333.33 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 333.33 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -432.67 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00040.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00041 at time 4.10
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 351.17 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 351.17 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -450.08 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00041.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00042 at time 4.20
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 369.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 369.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -467.50 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00042.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00043 at time 4.30
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 386.83 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 386.83 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -484.92 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00043.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00044 at time 4.40
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 404.67 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 404.67 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -502.33 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00044.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00045 at time 4.50
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 422.50 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 422.50 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -519.75 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00045.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00046 at time 4.60
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 440.33 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 440.33 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -537.17 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00046.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00047 at time 4.70
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 458.17 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 458.17 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -554.58 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00047.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00048 at time 4.80
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 476.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 476.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -572.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00048.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00049 at time 4.90
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 493.83 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 493.83 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -589.42 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00049.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00050 at time 5.00
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 511.67 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 511.67 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -606.83 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00050.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00051 at time 5.10
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 529.50 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 529.50 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -624.25 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00051.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00052 at time 5.20
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 547.33 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 547.33 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -641.67 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00052.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00053 at time 5.30
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 565.17 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 565.17 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -659.08 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00053.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00054 at time 5.40
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 583.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 583.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -676.50 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00054.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00055 at time 5.50
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 600.83 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 600.83 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -693.92 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00055.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00056 at time 5.60
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 618.67 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 618.67 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -711.33 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00056.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00057 at time 5.70
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 636.50 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 636.50 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -728.75 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00057.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00058 at time 5.80
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 654.33 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 654.33 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -746.17 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00058.png saved
+DEBUG:root:
+DEBUG:root:* SCRIPT Script IS GENERATING FRAME 00059 at time 5.90
+DEBUG:root:  - Item Script:BACKGROUND xpos= 0.00 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:BULLDOZER xpos= 672.17 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:HEAP xpos= 672.17 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  - Item Script:CLOUD xpos= -763.58 ypos= 0.00 xscale= 1.000 yscale= 1.000 rot= 0.000 opacity= 1.000
+DEBUG:root:  Frame Frame00059.png saved

@@ -1,3 +1,20 @@
+Metadata-Version: 2.1
+Name: py-animate
+Version: 1.0.0
+Summary: Create 2D animations, movies and animated gif's
+Home-page: https://github.com/henkjannl/py-animate.git
+Author: HenkJan van der Pol
+Author-email: henkjannospam@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/pypa/sampleproject/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
 # ANIMATE
 Animate is an interpreter written in Python which reads a timed sequence of commands from an Excel file and a number of bitmap images, and then composes movie frames with these commands. It can make simple animations, but also much more complex ones. No Python knowledge is needed to use this library.
 
@@ -70,7 +87,7 @@ The following libraries must be installed:
 | <!-- --> | <!-- --> | <!-- --> |
 |----------|----------|----------|
 | `python`        | >v3.0                     | python.org                                 |
-| `animate`       | pip install py-animate    | https://github.com/henkjannl/py-animate    |
+| `animate`       |                           |                                            |
 | `xlrd`          | pip install xlrd          | http://www.python-excel.org/               |
 | `pillow`        | pip install Pillow        | https://python-pillow.org/                 |
 | `ffmpeg`        |                           | https://ffmpeg.org/                        |
@@ -615,3 +632,5 @@ The 'Route' `TABLE` controls all movements and rotations:
 The result:
 
 ![](pictures/camera_demo.gif)
+
+
