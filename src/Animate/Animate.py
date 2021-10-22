@@ -1,6 +1,6 @@
 import os
 import time
-import numpy as np
+#import numpy as np
 
 import logging
 
@@ -12,7 +12,6 @@ except:
     pass
     
 logging.basicConfig(filename=LOG_FILENAME, filemode='w',level=logging.DEBUG)
-
 
 # www.pythonware.com/library/pil/handbook
 from PIL import Image,ImageFont, ImageDraw
