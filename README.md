@@ -498,7 +498,7 @@ At different moments in time, a different bitmap can be loaded as `MASK`.
 
 In the following example, two hydraulic cylinders are connected by a tube. In the tube, the fluid moves faster than in the cylinders. Also, the bubbles need to follow the trajectory of the tube as they are going from one cylinder to the other. 
 
-![Bubble sections](examples/08-Two-cylinders/two_cylinders.gif)
+![Tow cylinders](examples/08-Two-cylinders/TwoCylinders.gif)
 
 The stack of this animation is built up as follows:
 
