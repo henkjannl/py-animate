@@ -1,7 +1,7 @@
 # ANIMATE
 Animate is an interpreter written in Python which reads a timed sequence of commands from an Excel file and a number of bitmap images, and then composes movie frames with these commands. It can make simple animations, but also much more complex ones.
 
-[Introduction](pictures/bulldozer_bucket.gif)
+![Introduction](pictures/bulldozer_bucket.gif)
 
 Features:
 * it can handle location, rotation, scale and opacity of many images in parallel
@@ -110,8 +110,7 @@ Remarks:
 ### **Example 1. A bulldozer**
 A `SCRIPT` can look like this:
 
-![](pictures/script_bulldozer.png)
-[Bulldozer](pictures/script_bulldozer.png)
+![Bulldozer](pictures/script_bulldozer.png)
 
 This script contains 4 images, all of them showing an item at their default position in the image without transformation:
 1. Background.png
@@ -121,7 +120,7 @@ This script contains 4 images, all of them showing an item at their default posi
 
 The images are stacked on top of each other like this:
 
-![](pictures/bulldozer_stack.png)
+![Bulldozer stack](pictures/bulldozer_stack.png)
 
 The following sequence is played:
 * The bulldozer will ride from `XPOS`=-380 (out of screen on the left side) to `XPOS`=+690 (out of screen on the right side)
@@ -130,7 +129,7 @@ The following sequence is played:
 * The cloud will move from `XPOS`=+264 at t=0 s to `XPOS`=-781 at t=6 s
 * All other properties, such as `YPOS`, are not set, since their default values are OK
 
-![](pictures/timing_bulldozer.png)
+![Timing bulldozer](pictures/timing_bulldozer.png)
 
 The final animation looks like this:
 
