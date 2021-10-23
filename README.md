@@ -86,18 +86,18 @@ The examples are provided for inspiration:
 
 | <!-- --> | <!-- --> |
 |----------|----------|
-| [01-bulldozer](examples/01-bulldozer/Readme.md)                         | `SCRIPT`, `IMAGE` and `XPOS`       |
-| [02-bulldozer-with-table](examples/02-bulldozer-with-table/Readme.md)   | `TABLE`                            |
-| [03-solar-system](examples/03-solar-system/Readme.md)                   | `BRINGTOFRONT` and `SENDTOBACK`    |
-| [04-rotating-text](examples/04-rotating-text/Readme.md)                 | `TEXT`, `XPOLE` and `YPOLE`        |
-| [05-rotating-cloud](examples/05-rotating-cloud/Readme.md)               | `XPOLE`, `YPOLE` and `ROTATION`    |
-| [06-bulldozer-with-bucket](examples/06-bulldozer-with-bucket/Readme.md) | `ASSEMBLY`                         |
-| [07-bouncing-balls](examples/07-bouncing-balls/Readme.md)               | `TIMEOFFSET`                       |
-| [08-two-cylinders](examples/08-two-cylinders/Readme.md)                 | `MASK`                             |
-| [09-canvas](examples/09-canvas/Readme.md)                               | `CANVAS`                           |
-| [10-car](examples/10-car/Readme.md)                                     | `TABLE` driving multiple `SCRIPT`s |
-| [11-camera](examples/11-camera/Readme.md)                               | Same `ASSEMBLY` on multiple levels |
-| [12-sewing-machine](examples/12-sewing-machine/Readme.md)                               | Same `ASSEMBLY` on multiple levels |
+| [01-bulldozer](examples/01-bulldozer/Readme.md)                         | `SCRIPT`, `IMAGE` and `XPOS`        |
+| [02-bulldozer-with-table](examples/02-bulldozer-with-table/Readme.md)   | `TABLE`                             |
+| [03-solar-system](examples/03-solar-system/Readme.md)                   | `BRINGTOFRONT` and `SENDTOBACK`     |
+| [04-rotating-text](examples/04-rotating-text/Readme.md)                 | `TEXT`, `XPOLE` and `YPOLE`         |
+| [05-rotating-cloud](examples/05-rotating-cloud/Readme.md)               | `XPOLE`, `YPOLE` and `ROTATION`     |
+| [06-bulldozer-with-bucket](examples/06-bulldozer-with-bucket/Readme.md) | `ASSEMBLY`                          |
+| [07-bouncing-balls](examples/07-bouncing-balls/Readme.md)               | `TIMEOFFSET`                        |
+| [08-two-cylinders](examples/08-two-cylinders/Readme.md)                 | `MASK`                              |
+| [09-canvas](examples/09-canvas/Readme.md)                               | `CANVAS`                            |
+| [10-car](examples/10-car/Readme.md)                                     | `TABLE` driving multiple `SCRIPT`s  |
+| [11-camera](examples/11-camera/Readme.md)                               | Same `ASSEMBLY` on multiple levels  |
+| [12-sewing-machine](examples/12-sewing-machine/Readme.md)               | Similar example of a sewing machine |
 
 # The `SCRIPT` command
 A `SCRIPT` is a timed sequence of commands that influence properties
