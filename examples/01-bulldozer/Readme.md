@@ -1,4 +1,7 @@
 # Example 1. A bulldozer
+
+![Example_1](Bulldozer.gif)
+
 A `SCRIPT` can look like this:
 
 ![Bulldozer](Design/script_bulldozer.png)
@@ -22,8 +25,5 @@ The following sequence is played:
 
 ![Timing bulldozer](Design/timing_bulldozer.png)
 
-The final animation looks like this:
-
-![Example_1](bulldozer.gif)
 Remark:
 * The bulldozer, heap and cloud images are now 800x600 pixels, just like the background. It would also have been possible to use smaller images for the bulldozer, heap and cloud, without the surrounding empty space. We should then modify `XPOS` and `YPOS` to compensate for the cropping on left and top. This would improve processing speed and memory use. The administrative burden of accounting for the cropped areas can be taken  care of by the spreadsheet. This was not done here to keep the example simple.

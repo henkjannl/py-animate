@@ -2,7 +2,9 @@
 
 In this example, three balls are displayed which bounce on the ground. As each ball bounces, the bottom of the ball is compressed and the ball becomes wider.
 
-In the main script, three balls are declared, each with their own `XPOS` and `TIMEOFFSET`. All other moving and scaling of each ball is handled by the 'Ball' `SCRIPT` and the 'Bounce' `TABLE`:
+![Canvas example animation](bouncing_balls.gif)
+
+In the main script, three balls are declared, each with their own `XPOS` and `TIMEOFFSET`. The moving and scaling of each ball is handled just once by the 'Ball' `SCRIPT` and the 'Bounce' `TABLE`:
 
 ![Canvas example animation](Design/bouncing_balls_main.png)
 
@@ -14,6 +16,4 @@ The bouncing and scaling of the ball is defined in a table:
 
 ![Canvas example animation](Design/bouncing_balls_bounce.png)
 
-This produces the following animation:
-
-![Canvas example animation](bouncing_balls.gif)
+Since in the 'Main' `SCRIPT` a `TIMEOFFSET` up to 2.5 s is used, the motion of the ball in the 'Bounce' `TABLE` must also be defined for times up to -2.5 s.

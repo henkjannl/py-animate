@@ -137,9 +137,16 @@ When the `TABLE` command is used in a script, the name after the `TABLE` refers 
 | **Cells**    | Specifies the value for the property of the item at the given time | Not every cell in a time/item combination has to have a value.<br>If a cell has no value, the transition happens smoothly between the time/value pairs that are defined |
 
 Remarks:
-* A script can call more than one table. 
+* The `TABLE` allows a more compact way to describe transitions
+* A number is required in column A to distiguish the row from a comment row. However, the value of the time before the TABLE command is ignored. 
+* The times in column A do not have to be ordered
+* If values for a property are missing for certain points in time, Animate will interpolate between the values that are present
+* If `FIRSTFRAME` and `LASTFRAME` are not specified, the animation will run from t=0 until the last point in time specified
+* Between time 0 and the first specified value, the property will be constant until the first specified value
+* Same for the last specified value until the end of the animation
+* A script can call more than one table.
 * More than one script can call the same table. If the table controls an item that is not in the calling script, the item is ignored
-* The table is called by the script using the `TABLE` command. A number is required in column A to distiguish the row from a comment row. However, the value of the time before the TABLE command is ignored. 
+
 
 In [Example 2](examples/02-bulldozer-with-table/Readme.md), the `TABLE` command is demonstrated. 
 
@@ -202,11 +209,11 @@ All items have the following properties in common:
 Position, scaling and orientation:
 | <!-- --> | <!-- --> |
 |----------|----------|
-| `XPOS`     | The horizontal position on which the item is positioned. The position corresponds to the position of the image as if the rotation of the image is zero and the scale is 100% in horizontal and vertical direction. Note that the origin of the coordinate system is the top left corner of the image, if `XPOS`=0, the left side of the item will be aligned to the left side of the output stream. |
-| `YPOS`     | The vertical position on which the item is positioned. Note that the origin of the coordinate system is the top left corner of the image, if `YPOS`=0, the top of the item will be aligned to the top of the output stream. |
-| `ROTATION` | The rotation of the item in degrees. Positive angles are counterclockwise.<br>Rotation and scaling is explained in more detail in the following paragraph. |
-| `XSCALE`   | The scale of the item in horizontal direction. A value of 1 means that the scale is not changed. |
-| `YSCALE`   | The scale of the item in vertical direction.         |
+| `XPOS`     | The horizontal position on which the item is positioned.<br>The position corresponds to the position of the image as if the rotation of the image is zero and the scale is 100% in horizontal and vertical direction.<br>Note that the origin of the coordinate system is the top left corner of the image, if `XPOS`=0, the left side of the item will be aligned to the left side of the output stream. |
+| `YPOS`     | The vertical position on which the item is positioned.<br>Note that the origin of the coordinate system is the top left corner of the image, if `YPOS`=0, the top of the item will be aligned to the top of the output stream. |
+| `ROTATION` | The rotation of the item in degrees.<br>Positive angles are counterclockwise.<br>Angles can be less than 0° or more than 360° to support multiple revolutions.<br>Rotation and scaling is explained in more detail [in this paragraph](#scaling-rotating-and-the-pole) |
+| `XSCALE`   | The scale of the item in horizontal direction. A value of 1 means that the scale is not changed.<br>See also the paragraph on [the pole](#scaling-rotating-and-the-pole) |
+| `YSCALE`   | The scale of the item in vertical direction.<br>See also the paragraph on [the pole](#scaling-rotating-and-the-pole)         |
 
 Position, scaling and orientation modifiers:
 

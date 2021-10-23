@@ -1,2 +1,2 @@
 from Animate import Animate
-Animate.Model('BulldozerBucket.xlsx', 'Script')
+Animate.Model('BulldozerBucket.xls', 'Script')
