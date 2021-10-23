@@ -36,6 +36,8 @@ Animate heavily relies on open source software such as Python, the Python Imagin
 * [The `MASK`](#the-mask)
 * [The `CANVAS`](#the-canvas)
 * [Reusing a `TABLE` more than once](#reusing-a-table-more-than-once)
+* [Using the main script at a lower `ASSEMBLY`](#using-the-main-script-at-a-lower-assembly)
+
 <br><br>
 
 # Typical workflow
@@ -347,7 +349,7 @@ The `MASK` accepts a filename as an argument. It works in the following way:
 
 At different moments in time, a different bitmap can be loaded as `MASK`.
 
-[Example 8](examples/08-Two-cylinders/Readme.md) demonstrates the `MASK` item.
+[Example 8](examples/08-two-cylinders/Readme.md) demonstrates the `MASK` item.
 
 # The `CANVAS`
 
