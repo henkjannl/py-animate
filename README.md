@@ -32,7 +32,7 @@ Animate heavily relies on open source software such as Python, the Python Imagin
 * [The `TEXT` item](#the-text-item)
 * [Scaling, rotating and the pole](#scaling-rotating-and-the-pole)
 * [The `ASSEMBLY` item](#the-assembly-item)
-* [Working with `TIMEOFFSET`](#working-ith-time-offset)
+* [Working with `TIMEOFFSET`](#time-offset)
 * [The `MASK`](#the-mask)
 * [The `CANVAS`](#the-canvas)
 * [Reusing a `TABLE` more than once](#reusing-a-table-more-than-once)
@@ -60,8 +60,23 @@ Animate.Model('Simulation.xls', 'Main')
 ```
 The two parameters refer to the Excel file and the name of the sheet that contains the main script.
 
-<br><br>
+# List of examples
 
+The examples are provided for inspiration:
+
+| <!-- --> | <!-- --> |
+|----------|----------|
+| [01-Bulldozer](examples/01-Bulldozer/Readme.md)                         | `SCRIPT`, `IMAGE` and `XPOS`       |
+| [02-bulldozer-with-table](examples/02-bulldozer-with-table/Readme.md)   | `TABLE`                            |
+| [03-solar-system](examples/03-solar-system/Readme.md)                   | `BRINGTOFRONT` and `SENDTOBACK`    |
+| [04-rotating-text](examples/04-rotating-text/Readme.md)                 | `TEXT`, `XPOLE` and `YPOLE`        |
+| [05-rotating-cloud](examples/05-rotating-cloud/Readme.md)               | `XPOLE`, `YPOLE` and `ROTATION`    |
+| [06-bulldozer-with-bucket](examples/06-bulldozer-with-bucket/Readme.md) | `ASSEMBLY`                         |
+| [07-bouncing-balls](examples/07-Bouncing-balls/Readme.md)               | `TIMEOFFSET`                       |
+| [08-two-cylinders](examples/08-two-cylinders/Readme.md)                 | `MASK`                             |
+| [09-canvas](examples/09-canvas/Readme.md)                               | `CANVAS`                           |
+| [10-car](examples/10-car/Readme.md)                                     | `TABLE` driving multiple `SCRIPT`s |
+| [11-camera](examples/11-camera/Readme.md)                               | Same `ASSEMBLY` on multiple levels |
 
 # Dependencies
 
@@ -105,37 +120,9 @@ Remarks:
 * Commands, properties and item names are not case sensitive
 * All items have most properties in common
 
-<br><br>
+<br>
 
-### **Example 1. A bulldozer**
-A `SCRIPT` can look like this:
-
-![Bulldozer](pictures/script_bulldozer.png)
-
-This script contains 4 images, all of them showing an item at their default position in the image without transformation:
-1. Background.png
-2. Bulldozer.png
-3. Heap.png
-4. Cloud.png
-
-The images are stacked on top of each other like this:
-
-![Bulldozer stack](pictures/bulldozer_stack.png)
-
-The following sequence is played:
-* The bulldozer will ride from `XPOS`=-380 (out of screen on the left side) to `XPOS`=+690 (out of screen on the right side)
-* In cells G15 and G16, the time at which the bulldozer reaches `XPOS`=0 is calculated (t=2.13 s). This is the location at which the bulldozer reaches the heap.
-* Cell A18 refers to the calculated time in G16. Between t=2.13 and t=6.00, the heap will slide from `XPOS`=0 (default position in the middle of the screen) to `XPOS`=+690 (out of screen on the right side)
-* The cloud will move from `XPOS`=+264 at t=0 s to `XPOS`=-781 at t=6 s
-* All other properties, such as `YPOS`, are not set, since their default values are OK
-
-![Timing bulldozer](pictures/timing_bulldozer.png)
-
-The final animation looks like this:
-
-![Example_1](examples/01-Bulldozer/bulldozer.gif)
-Remark:
-* The bulldozer, heap and cloud images are now 800x600 pixels, just like the background. It would also have been possible to use smaller images for the bulldozer, heap and cloud, without the surrounding empty space. We should then modify `XPOS` and `YPOS` to compensate for the cropping on left and top. This would improve processing speed and memory use. The administrative burden of accounting for the cropped areas can be taken  care of by the spreadsheet. This was not done here to keep the example simple.
+In [Example 1](examples/01-Bulldozer/Readme.md), the `SCRIPT` command is demonstrated. 
 
 <br>
 
@@ -154,28 +141,7 @@ Remarks:
 * More than one script can call the same table. If the table controls an item that is not in the calling script, the item is ignored
 * The table is called by the script using the `TABLE` command. A number is required in column A to distiguish the row from a comment row. However, the value of the time before the TABLE command is ignored. 
 
-
-<br><br>
-
-### **Example 2: Bulldozer with table**
-
-En this example, the same bulldozer animation is created, but this time a `TABLE` is used.
-
-![Main script](pictures/script_bulldozer_1.png)
-
-The movements of all items are now defined in a `TABLE` that is called by the main `SCRIPT`:
-
-![Table](pictures/table_bulldozer_2.png)
-
-Remarks:
-* The `TABLE` allows a more compact way to describe transitions
-* The times in column A do not have to be ordered
-* If numbers are missing for certain points in time, Animate will interpolate between the values that are present
-* If `FIRSTFRAME` and `LASTFRAME` are not specified, the animation will run from t=0 until the last point in time specified
-* Between time 0 and the first specified value, the property will be constant until the first specified value
-* Same for the last specified value until the end of the animation
-
-<br><br>
+In [Example 2](examples/02-bulldozer-with-table/Readme.md), the `TABLE` command is demonstrated. 
 
 # Time in Animate
 
@@ -186,23 +152,17 @@ Remarks:
 * By default, the last event in all script is used to determine how long the animation takes
 * If a shorter animation is desired, the `LASTFRAME` command can be used to define the duration. Note that this is a frame number and not a time in seconds
 
-<br>
-
 ## Debugging
 * For debugging purposes, the `FIRSTFRAME` and `LASTFRAME` commands can be used to render a subset of the frames
 * Also for debugging purposes, it can be helpful to temporatily use a lower `FRAMERATE` to test if the animation works well
 * With a bitmap viewer such as IrfanView, it is easy to browse though the `../Frames` directory, to check which frames need to be re-rendered
 * It is also possible to use `SHOWTIME` to display the time in each frame 
 
-<br>
-
 # Coordinate system
 Animate uses the same coordinate system conventions as bitmaps:
 * the origin is in the upper left corner
 * positive X-axis is to the right
 * positive Y-axis is down
-
-<br>
 
 # Types of items
 The following types of items are defined:
@@ -213,8 +173,6 @@ The following types of items are defined:
 | `ASSEMBLY` | an item that is dynamically made up of other items                 |
 | `CANVAS`   | similar to an `ASSEMBLY`, but not erased between subsequent frames |
 | `MASK`     | used to mask certain parts of the items below the mask             |
-
-<br><br>
 
 ## Global commands
 The following commands are only relevant for the main script. These commands are ignored for other scripts:
@@ -237,8 +195,6 @@ Remarks:
 * The Movie command uses the frames in the `../Frames` directory. Therefore, all rendered frames are used. If going from a high to a low `FRAMERATE`, ensure to remove the frames that are no longer needed from the `../Frames` directory before creating the movie
 * If you plan to create a movie, please choose a standard movie format, such as 720x576 (PAL) 1280×720 (HD720p) or 1920×1080 (HD1080p), to ensure the output is compatible with standard movie players.
 * After the Movie or AnimatedGIF has been created, the `../Frames` directory can be removed to save disk space
-
-<br><br>
 
 ## Properties common to all items
 All items have the following properties in common:
@@ -272,8 +228,6 @@ The position, scaling and orientation modifiers can have the following values:
 | `ACCEL`    | the property accelerates from low speed to high speed             |
 | `DAMPED`   | the property starts fast and then decelerates                     |
 
-<br>
-
 The different values can be depicted as follows:
 
 ![](pictures/move.png)
@@ -289,8 +243,6 @@ Other properties that are common to all items:
 | `SENDTOBACK`   | Changes the Z-order of the item list, sending this item to the bottom of the list |
 | `TEXTCOLOR`    | Specific for text items: the color for the font of the text |
 | `FONT`         | Specific for text items: the font for the text              |
-
-<br><br>
 
 ## Properties specific to `SCRIPT`, `ASSEMBLY` and `CANVAS`
 
@@ -309,46 +261,29 @@ Other properties that are common to all items:
 Remarks:
 * Commands and properties are not case sensitive
 
-<br>
-
 # `BRINGTOFRONT` and `SENDTOBACK`
 
-Items are ordered in a certain Z-order, meaning some items are placed in front of other items. An item can be put in front of the other items using `BRINGTOFRONT`, and placed at the back using `SENDTOBACK`. 
-
-![Bring to front](pictures/moon-example-bring-to-front.png)
+Items are ordered in a certain Z-order, meaning some items are placed in front of other items. An item can be put in front of all other items using `BRINGTOFRONT`, and placed at the back using `SENDTOBACK`. 
 
 Remarks:
 * This changes the order of items within a `SCRIPT`, `ASSEMBLY` or `CANVAS`. 
 * The `ASSEMBLY` or `CANVAS` can also be placed in front of or behind other items in the script in which they are defined.
 
-<br>
-
-### **Example 3: Solar system**
-
-In this example, 5 moons are spinning around a planet. Each moon is sent to the back when it is at the right of the planet, and brought to the front if it is left of the planet.
-
-![Solar system](examples/03-Solar-System/solar_system.gif)
-
-<br><br>
-
+In [Example 3](examples/03-solar-system/Readme.md), the `BRINGTOFRONT` and `SENDTOBACK` are demonstrated. 
 
 # The `IMAGE` item
 
 The `IMAGE` command loads an image from file and links it to an item with a unique name.
 
-The example below creates an item called Glass, and loads different images at 4 and 5 seconds. The image loaded at 3 seconds will  already be loaded as the script starts.
+The example below creates an item called Glass, and loads different images at 4 and 5 seconds. The image loaded at t = 3s will  already be loaded as the script starts.
 
 ![](pictures/image.png)
 
 All properties that apply to other items, such as `XPOS` and `XSCALE`, also apply to image items.
 
-<br><br>
-
 # The `TEXT` item
 
 The `TEXT` command declares a `TEXT` item and immediately assigns a text value to it. The text value can be changed ad different moments in time.
-
-<br><br>
 
 # Scaling, rotating and the pole
 
@@ -360,47 +295,9 @@ The coordinates provided with `XPOLE` and `YPOLE` are relative to the upper left
 
 ![Xpole and Ypole](pictures/xpole_ypole.png)
 
-<br><br>
+In [Example 4](examples/04-rotating-text/Readme.md), the `TEXT`, `XPOLE` and `YPOLE` commands are demonstrated. 
 
-### **Example 4. Rotating text**
-
-In the main `SCRIPT`, three text objects are defined, each with their own location and pole. The location of `XPOLE` and `YPOLE` is defined relative to the top left corner of the item:
-
-![Rotating text main](pictures/rotate_text_main.png)
-
-The rotations are defined in a separate `TABLE`:
-
-![Rotating text table](pictures/rotate_text_table.png)
-
-The result looks like this:
-
-![Rotating text result](examples/04-Rotating-text/rotating_text.gif)
-
-Here, it can clearly be seen that the location of `XPOLE` and `YPOLE` is defined relative to the top left corner of the item.
-
-<br><br>
-
-
-### **Example 5: Rotating cloud**
-
-The main `SCRIPT` of the bulldozer example is again modified, now adding the `XPOLE` and `YPOLE` of the cloud. 
-
-Also, a `TABLE` is added which defines  the rotation, scaling and opacity of the cloud.
-
-![Rotating cloud moves table](pictures/rotating_cloud_main_script.png)
-
-The Moves `TABLE` is extended with cloud control:
-
-![Rotating cloud moves table](pictures/rotating_cloud_moves_table.png)
-
-Note that rotation can span more than 360°.
-
-The resulting animation looks like this:
-
-![Rotating cloud animation](examples/05-Rotating-cloud/RotatingCloud.gif)
-
-<br><br>
-
+[Example 5](examples/05-rotating-cloud/Readme.md), demonstrates rotation of the clod in the original bulldozer animation.
 
 # The `ASSEMBLY` item
 
@@ -408,33 +305,9 @@ The main script can call an `ASSEMBLY`, which is in fact another script which ca
 
 In the following example, the bulldozer from example 1 is animated. This time, the bulldozer is not a static image, but the wheel and the bucket of the bulldozer can move. 
 
-<br>
+[Example 6](examples/06-bulldozer-with-bucket/Readme.md) demonstrates the `ASSEMBLY` item.
 
-### **Example 6: Bulldozer with bucket**
-
-In the main script, the global movement of the bulldozer is taken care of. In fact, the main script had only a minor change compared to example 1: instead of declaring the bulldozer as an `IMAGE`, it was now declared as an `ASSEMBLY`.
-
-![Moving bulldozer main](pictures/bulldozer_bucket_main.png)
-
-In the definition of the `ASSEMBLY` of the bulldozer, the bulldozer itself is drawn with the rotating wheel and bucket on it. 
-
-The `ASSEMBLY` is made up of the following items:
-
-![Bulldozer assembly items](pictures/bulldozer_bucket_items.png)
-
-The items are tied together as follows:
-
-![Bulldozer assembly](pictures/bulldozer_bucket_assembly.png)
-
-The result looks like this:
-
-![Moving bulldozer](examples/06-Bulldozer-with-bucket/bulldozer_bucket.gif)
-
-<br><br>
-
-<br><br>
-
-# Working with `TIMEOFFSET`
+# `TIMEOFFSET`
 
 Sometimes it is useful to work with multiple instances of an `ASSEMBLY` or `CANVAS`, but each instance must have an offset in time.
 
@@ -459,27 +332,9 @@ To let the item start later than the calling script, the offset is subtracted fr
 
 This demonstrates that negative times in the called `ASSEMBLY` or `CANVAS` can occur. It is possible to also provide negative times in the called scripts to define the behaviour for negative values of the time.
 
-<br>
 
-### **Example 7: Bouncing balls**
+[Example 7](examples/07-Bouncing-balls/Readme.md), demonstrates the `TIMEOFFSET` command.
 
-In this example, three balls are displayed which bounce on the ground. As each ball bounces, the bottom of the ball is compressed and the ball becomes wider.
-
-In the main script, three balls are declared, each with their own `XPOS` and `TIMEOFFSET`:
-
-![Canvas example animation](pictures/bouncing_balls_main.png)
-
-The ball assembly consists of two half circles, one flipped upside down:
-
-![Canvas example animation](pictures/bouncing_balls_ball.png)
-
-The bouncing and scaling of the ball is defined in a table:
-
-![Canvas example animation](pictures/bouncing_balls_bounce.png)
-
-This produces the following animation:
-
-![Canvas example animation](examples/07-Bouncing-balls/bouncing_balls.gif)
 
 # The `MASK`
 
@@ -492,36 +347,7 @@ The `MASK` accepts a filename as an argument. It works in the following way:
 
 At different moments in time, a different bitmap can be loaded as `MASK`.
 
-<br>
-
-### **Example 8: Two cylinders**
-
-In the following example, two hydraulic cylinders are connected by a tube. In the tube, the fluid moves faster than in the cylinders. Also, the bubbles need to follow the trajectory of the tube as they are going from one cylinder to the other. 
-
-![Tow cylinders](examples/08-Two-cylinders/TwoCylinders.gif)
-
-The stack of this animation is built up as follows:
-
-![Cylinder stack](pictures/two_cylinders_stack.png)
-
-The fluid system is divided in 7 sections
-1. cylinder 1
-1. straight tube section
-1. bended tube section
-1. straight tube section
-1. bended tube section
-1. straight tube section
-1. cylinder 2
-
-![Bubble sections](pictures/two_cylinders_sections.png)
-
-In the `SCRIPT` bubbles, 7 bubble items are declared, each with an image with random bubbles, selected from 3 images. An additional sheet 'bubble planning' is used to plan out the location, orientation and speed of each group of bubbles. The main `SCRIPT` script shows a background image, the `ASSEMBLY` with the bubbles, and two pistons.
-
-The bubbles `ASSEMBLY` shows 7 `IMAGE`s of bubbles, each driven by their own `TABLE` which controls location and orientation. On top of the 7 `IMAGE`s, a `MASK` covers the bubbles that are outside the tube. The location and orientation of the bubbles in each of the `TABLE`s is in turn controlled by the sheet 'bubble planning', which just takes care of the mathematics for each section.
-
-![Bubble sections](pictures/two_cylinders_correlations.png)
-
-<br><br>
+[Example 8](examples/08-Two-cylinders/Readme.md) demonstrates the `MASK` item.
 
 # The `CANVAS`
 
@@ -529,88 +355,16 @@ A `CANVAS` is like an `ASSEMBLY`; the difference is that the image is not erased
 
 <br>
 
-### **Example 9: Canvas**
+[Example 9](examples/09-canvas/Readme.md) demonstrates the `CANVAS` item.
 
-The stack for this example is as follows:
-
-![Canvas example stack](pictures/canvas_example_stack.png)
-
-This results in the following animation:
-
-![Canvas example animation](examples/09-Canvas/canvas_demo.gif)
 
 # Reusing a `TABLE` more than once
 
 Sometimes it is useful to plan out the transformations well. In the example below, a single table is used twice on different items that both need to follow the same path. This way, duplicating information is avoided.
 
-### **Example 10: Car**
+[Example 10](examples/10-car/Readme.md) demonstrates a more complex use of the `TABLE` command, where multiple items in different scripts are controlled by a single `TABLE`.
 
-This example uses three images: 
-1. background
-1. tires of the car
-1. car itself
+# Using the main script at a lower `ASSEMBLY`
 
-The car needs to follow a certain route on the road. The imprint of the tires is recorded on a canvas. The hierarchy is built up as follows:
+Sometimes it is useful to add a higher level of hierarchy to the animation. In [Example 11](examples/11-camera/Readme.md), the original 'Main' `SCRIPT` of the previous example is now renamed 'Map'. In the new script, this `SCRIPT` is used twice: once in an `ASSEMBLY` named 'FixedMap', which is used in the same way as the original example, and once in another `ASSEMBLY` named 'Radar'. The 'Radar' `ASSEMBLY` acts as a small camera inset, showing where the car is driving on the map. Still, all motion is controlled by a single `TABLE` called 'Route'.
 
-![Car hierarchy](pictures/car-architecture.png)
-
-In this case, the car and the tires have the same image dimensions and are both named 'Vehicle'. Also, the `SCRIPT` 'Main' and the `CANVAS` 'Tracks' both call the `TABLE` 'Route'. In this table, location and orientation of the 'Vehicle' item is controlled. Since both the tires and the car are called 'Vehicle' in their respective worksheers, the `TABLE` modifies location and orientation of both items in exactly the same way.
-
-The main `SCRIPT`:
-
-![Car main script](pictures/car-main.png)
-
-The `CANVAS` named Tracks:
-
-![Car tracks](pictures/car-tracks.png)
-
-The `TABLE` named Route:
-
-![Car route](pictures/car-route.png)
-
-The time intervals are calculated based on a fixed speed in linear movements, and a fixed amount of time for each curve.
-
-The result:
-
-![Car route](examples/10-Car/car_demo.gif)
-
-# Adding a camera
-
-In the next example, a higher level of hierarchy is added on top of the main `SCRIPT`. The main `SCRIPT` in the previous example is now an `ASSEMBLY` 'map' which is used twice: once in the `SCRIPT` 'main', and once in an `ASSEMBLY` named 'radar'. 
-
-The 'Radar' `ASSEMBLY` is just 250x250 pixels, and it has circular mask. Below the circular `MASK`, the 'Map' `ASSEMBLY` is moving in X and Y direction, such that car is below the center of the circular mask.
-
-In the 'Main' `SCRIPT`, the 'Map' `ASSEMBLY` is displayed just like in the previous example. On op of the 'map', several items are displayed:
-* a magnifying glass, which moves with the car
-* the 'Radar' `ASSEMBLY` which is scaled down and rotates with the orientation of the car
-* a circle on top of the radar image
-
-### **Example 11: Camera**
-
-The hierarchy is now more complex:
-
-![](pictures/camera-hierarchy.png)
-
-In the 'main' `SCRIPT`, the following items are created:
-1. Glass: the magnifying glass which hovers over the car
-1. Circle: a black circle around the radar screen
-1. Radar: the small radar screen in the bottom left corner
-1. FixedMap: the `ASSEMBLY` 'map' with the map and the driving car. It is now renamed 'FixedMap' to prevent the `TABLE` 'table' from modifying it's position
-
-![](pictures/camera-main.png)
-
-The 'Radar' `ASSEMBLY` basically moves the 'Map' `ASSEMBLY` under the mask.
-
-![](pictures/camera-radar.png)
-
-The 'Map' `ASSEMBLY` only has the background map, the tyres `CANVAS` and the Car:
-
-![](pictures/caera-map.png)
-
-The 'Route' `TABLE` controls all movements and rotations:
-
-![](pictures/camera-table.png)
-
-The result:
-
-![Camera demo](examples/11-Camera/camera_demo.gif)
