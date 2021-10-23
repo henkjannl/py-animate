@@ -305,7 +305,7 @@ The coordinates provided with `XPOLE` and `YPOLE` are relative to the upper left
 
 In [Example 4](examples/04-rotating-text/Readme.md), the `TEXT`, `XPOLE` and `YPOLE` commands are demonstrated. 
 
-[Example 5](examples/05-rotating-cloud/Readme.md), demonstrates rotation of the clod in the original bulldozer animation.
+[Example 5](examples/05-rotating-cloud/Readme.md), demonstrates rotation of the cloud in the original bulldozer animation.
 
 # The `ASSEMBLY` item
 
