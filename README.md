@@ -97,6 +97,7 @@ The examples are provided for inspiration:
 | [09-canvas](examples/09-canvas/Readme.md)                               | `CANVAS`                           |
 | [10-car](examples/10-car/Readme.md)                                     | `TABLE` driving multiple `SCRIPT`s |
 | [11-camera](examples/11-camera/Readme.md)                               | Same `ASSEMBLY` on multiple levels |
+| [12-sewing-machine](examples/12-sewing-machine/Readme.md)                               | Same `ASSEMBLY` on multiple levels |
 
 # The `SCRIPT` command
 A `SCRIPT` is a timed sequence of commands that influence properties

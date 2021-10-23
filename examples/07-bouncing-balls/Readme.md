@@ -17,3 +17,5 @@ The bouncing and scaling of the ball is defined in a table:
 ![Canvas example animation](Design/bouncing_balls_bounce.png)
 
 Since in the 'Main' `SCRIPT` a `TIMEOFFSET` up to 2.5 s is used, the motion of the ball in the 'Bounce' `TABLE` must also be defined for times up to -2.5 s.
+
+Also note that the `YMOVE` value is changed to `ACCEL` if the ball reaches the top and to `DAMPED` as it bounces on the ground. This way, a parabolic bounce is approximated.
