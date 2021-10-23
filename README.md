@@ -92,7 +92,7 @@ The examples are provided for inspiration:
 | [04-rotating-text](examples/04-rotating-text/Readme.md)                 | `TEXT`, `XPOLE` and `YPOLE`        |
 | [05-rotating-cloud](examples/05-rotating-cloud/Readme.md)               | `XPOLE`, `YPOLE` and `ROTATION`    |
 | [06-bulldozer-with-bucket](examples/06-bulldozer-with-bucket/Readme.md) | `ASSEMBLY`                         |
-| [07-bouncing-balls](examples/07-Bouncing-balls/Readme.md)               | `TIMEOFFSET`                       |
+| [07-bouncing-balls](examples/07-bouncing-balls/Readme.md)               | `TIMEOFFSET`                       |
 | [08-two-cylinders](examples/08-two-cylinders/Readme.md)                 | `MASK`                             |
 | [09-canvas](examples/09-canvas/Readme.md)                               | `CANVAS`                           |
 | [10-car](examples/10-car/Readme.md)                                     | `TABLE` driving multiple `SCRIPT`s |
