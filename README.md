@@ -17,11 +17,11 @@ Features:
 
 Animate heavily relies on open source software such as Python, the Python Imaging Library (PIL) and XLRD. Many thanks to the creators of this great software. Please don't forget to donate to all these great projects.
 
-<br><br>
-
 # Table of Contents
+
 * [Typical workflow](#typical-workflow)
 * [Dependencies](#dependencies)
+* [List of examples](#list-of-examples)
 * [The `SCRIPT` command](#the-script-command)
 * [The `TABLE` command](#the-table-command)
 * [Time in Animate](#time-in-animate)
@@ -33,12 +33,12 @@ Animate heavily relies on open source software such as Python, the Python Imagin
 * [Scaling, rotating and the pole](#scaling-rotating-and-the-pole)
 * [The `ASSEMBLY` item](#the-assembly-item)
 * [Working with `TIMEOFFSET`](#time-offset)
-* [The `MASK`](#the-mask)
-* [The `CANVAS`](#the-canvas)
-* [Reusing a `TABLE` more than once](#reusing-a-table-more-than-once)
+* [The `MASK` item](#the-mask-item)
+* [The `CANVAS` item](#the-canvas-item)
+* [Using a `TABLE` more than once](#using-a-table-more-than-once)
 * [Using the main script at a lower `ASSEMBLY`](#using-the-main-script-at-a-lower-assembly)
-
-<br><br>
+* [Known issues](#known-issues)
+* [To do for future versions](#to-do-for-future-versions)
 
 # Typical workflow
 
@@ -62,24 +62,6 @@ Animate.Model('Simulation.xls', 'Main')
 ```
 The two parameters refer to the Excel file and the name of the sheet that contains the main script.
 
-# List of examples
-
-The examples are provided for inspiration:
-
-| <!-- --> | <!-- --> |
-|----------|----------|
-| [01-bulldozer](examples/01-bulldozer/Readme.md)                         | `SCRIPT`, `IMAGE` and `XPOS`       |
-| [02-bulldozer-with-table](examples/02-bulldozer-with-table/Readme.md)   | `TABLE`                            |
-| [03-solar-system](examples/03-solar-system/Readme.md)                   | `BRINGTOFRONT` and `SENDTOBACK`    |
-| [04-rotating-text](examples/04-rotating-text/Readme.md)                 | `TEXT`, `XPOLE` and `YPOLE`        |
-| [05-rotating-cloud](examples/05-rotating-cloud/Readme.md)               | `XPOLE`, `YPOLE` and `ROTATION`    |
-| [06-bulldozer-with-bucket](examples/06-bulldozer-with-bucket/Readme.md) | `ASSEMBLY`                         |
-| [07-bouncing-balls](examples/07-Bouncing-balls/Readme.md)               | `TIMEOFFSET`                       |
-| [08-two-cylinders](examples/08-two-cylinders/Readme.md)                 | `MASK`                             |
-| [09-canvas](examples/09-canvas/Readme.md)                               | `CANVAS`                           |
-| [10-car](examples/10-car/Readme.md)                                     | `TABLE` driving multiple `SCRIPT`s |
-| [11-camera](examples/11-camera/Readme.md)                               | Same `ASSEMBLY` on multiple levels |
-
 # Dependencies
 
 The following libraries must be installed:
@@ -97,8 +79,24 @@ Remarks:
 * ffmpeg is only needed if video files need to be created
 * in order to use ffmpeg, the ffmpeg library itself first needs to be installed on the system
 * ffmpeg-python is a python binder to ffmpeg. Please make sure ffmpeg-python is spelled correctly, there are various similar libraries with different spelling
- 
-<br><br>
+
+# List of examples
+
+The examples are provided for inspiration:
+
+| <!-- --> | <!-- --> |
+|----------|----------|
+| [01-bulldozer](examples/01-bulldozer/Readme.md)                         | `SCRIPT`, `IMAGE` and `XPOS`       |
+| [02-bulldozer-with-table](examples/02-bulldozer-with-table/Readme.md)   | `TABLE`                            |
+| [03-solar-system](examples/03-solar-system/Readme.md)                   | `BRINGTOFRONT` and `SENDTOBACK`    |
+| [04-rotating-text](examples/04-rotating-text/Readme.md)                 | `TEXT`, `XPOLE` and `YPOLE`        |
+| [05-rotating-cloud](examples/05-rotating-cloud/Readme.md)               | `XPOLE`, `YPOLE` and `ROTATION`    |
+| [06-bulldozer-with-bucket](examples/06-bulldozer-with-bucket/Readme.md) | `ASSEMBLY`                         |
+| [07-bouncing-balls](examples/07-Bouncing-balls/Readme.md)               | `TIMEOFFSET`                       |
+| [08-two-cylinders](examples/08-two-cylinders/Readme.md)                 | `MASK`                             |
+| [09-canvas](examples/09-canvas/Readme.md)                               | `CANVAS`                           |
+| [10-car](examples/10-car/Readme.md)                                     | `TABLE` driving multiple `SCRIPT`s |
+| [11-camera](examples/11-camera/Readme.md)                               | Same `ASSEMBLY` on multiple levels |
 
 # The `SCRIPT` command
 A `SCRIPT` is a timed sequence of commands that influence properties
@@ -338,7 +336,7 @@ This demonstrates that negative times in the called `ASSEMBLY` or `CANVAS` can o
 [Example 7](examples/07-Bouncing-balls/Readme.md), demonstrates the `TIMEOFFSET` command.
 
 
-# The `MASK`
+# The `MASK` item
 
 A `MASK` is used to reveil some parts of the underlying stack, or conceil others. 
 
@@ -351,7 +349,7 @@ At different moments in time, a different bitmap can be loaded as `MASK`.
 
 [Example 8](examples/08-two-cylinders/Readme.md) demonstrates the `MASK` item.
 
-# The `CANVAS`
+# The `CANVAS` item
 
 A `CANVAS` is like an `ASSEMBLY`; the difference is that the image is not erased in between frames. A `CANVAS` can be useful as a drawing board, to draw text or a graph.
 
@@ -360,7 +358,7 @@ A `CANVAS` is like an `ASSEMBLY`; the difference is that the image is not erased
 [Example 9](examples/09-canvas/Readme.md) demonstrates the `CANVAS` item.
 
 
-# Reusing a `TABLE` more than once
+# Using a `TABLE` more than once
 
 Sometimes it is useful to plan out the transformations well. In the example below, a single table is used twice on different items that both need to follow the same path. This way, duplicating information is avoided.
 
@@ -370,3 +368,26 @@ Sometimes it is useful to plan out the transformations well. In the example belo
 
 Sometimes it is useful to add a higher level of hierarchy to the animation. In [Example 11](examples/11-camera/Readme.md), the original 'Main' `SCRIPT` of the previous example is now renamed 'Map'. In the new script, this `SCRIPT` is used twice: once in an `ASSEMBLY` named 'FixedMap', which is used in the same way as the original example, and once in another `ASSEMBLY` named 'Radar'. The 'Radar' `ASSEMBLY` acts as a small camera inset, showing where the car is driving on the map. Still, all motion is controlled by a single `TABLE` called 'Route'.
 
+# Known issues
+
+* .xlsx not yet supported, only .xls
+* if `OPACITY` is less than 100% or a `MASK` is not white or black, or an `IMAGE` has partial transparency, a red shade may occur. This is probably something in Pillow 
+* `MOVIE` and `ANIMATEDGIF` do not support the `FRAMERATE`
+* Font support is not system independent
+
+# To do for future versions
+
+* More options for AnimatedGIF and Movie
+* Consider another spreadsheet library (such as Pandas) to allow support of open document spreadsheets too
+* Allow for negative scaling
+* Solve why opacity turns red
+* Let the user choose between 'fast' or 'pretty'
+* Gather all scaling, translation and rotation transformations in one transformation to make it faster
+* Make a robust Init procedure for the font directory. Use try .. except statements to check in which folder the fonts are located and which fonts are available.
+* Default Zorder should be in the order in which the items are created
+* Zorder as DiscreteProperty
+* Zorder, `while time[index] < time`
+* Remember images in different phases, create the possibility to turn it off if too memory intensive
+* Parse commands can be easier if commands are grouped in a few groups
+* Opacity interpolates only linear. Benificial to add other options?
+* Make Animate run with SVG elements instead of PNGs
