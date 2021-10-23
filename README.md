@@ -68,7 +68,7 @@ The examples are provided for inspiration:
 
 | <!-- --> | <!-- --> |
 |----------|----------|
-| [01-Bulldozer](examples/01-Bulldozer/Readme.md)                         | `SCRIPT`, `IMAGE` and `XPOS`       |
+| [01-bulldozer](examples/01-bulldozer/Readme.md)                         | `SCRIPT`, `IMAGE` and `XPOS`       |
 | [02-bulldozer-with-table](examples/02-bulldozer-with-table/Readme.md)   | `TABLE`                            |
 | [03-solar-system](examples/03-solar-system/Readme.md)                   | `BRINGTOFRONT` and `SENDTOBACK`    |
 | [04-rotating-text](examples/04-rotating-text/Readme.md)                 | `TEXT`, `XPOLE` and `YPOLE`        |
