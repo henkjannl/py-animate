@@ -5,7 +5,7 @@ Remarks for [TestVideo.py](https://github.com/henkjannl/py-animate/blob/6c81d72a
 | movie-asus-pc.mpeg | Asus PC, windows 10, i7 processor | yes    | no  |
 | movie-hp-pc.mp4    | HP PC, windows 10, i7 processor   | yes    | no  |
 | movie-hp-pc.mpeg   | HP PC, windows 10, i7 processor   | yes    | no  |
-| export-shotcut-from-hp.mp4 | Shot, from same HP laptop | yes    | no |
+| export-shotcut-from-hp.mp4 | ShotCut export from same HP laptop | yes    | no |
 
 1) garbled result on Asus, good result on HP
 
