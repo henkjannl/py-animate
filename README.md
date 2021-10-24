@@ -19,26 +19,32 @@ Animate heavily relies on open source software such as Python, the Python Imagin
 
 # Table of Contents
 
-* [Typical workflow](#typical-workflow)
-* [Dependencies](#dependencies)
-* [List of examples](#list-of-examples)
-* [The `SCRIPT` command](#the-script-command)
-* [The `TABLE` command](#the-table-command)
-* [Time in Animate](#time-in-animate)
-* [Coordinate system](#coordinate-system)
-* [Types of items](#types-of-items)
-* [`BRINGTOFRONT` and `SENDTOBACK`](#bringtofront-and-sendtoback)
-* [The `IMAGE` item](#the-image-item)
-* [The `TEXT` item](#the-text-item)
-* [Scaling, rotating and the pole](#scaling-rotating-and-the-pole)
-* [The `ASSEMBLY` item](#the-assembly-item)
-* [Working with `TIMEOFFSET`](#time-offset)
-* [The `MASK` item](#the-mask-item)
-* [The `CANVAS` item](#the-canvas-item)
-* [Using a `TABLE` more than once](#using-a-table-more-than-once)
-* [Using the main script at a lower `ASSEMBLY`](#using-the-main-script-at-a-lower-assembly)
-* [Known issues](#known-issues)
-* [To do for future versions](#to-do-for-future-versions)
+- [ANIMATE](#animate)
+- [Table of Contents](#table-of-contents)
+- [Typical workflow](#typical-workflow)
+- [Dependencies](#dependencies)
+- [List of examples](#list-of-examples)
+- [The `SCRIPT` command](#the-script-command)
+- [The `TABLE` command](#the-table-command)
+- [Time in Animate](#time-in-animate)
+  - [Debugging](#debugging)
+- [Coordinate system](#coordinate-system)
+- [Types of items](#types-of-items)
+  - [Global commands](#global-commands)
+  - [Properties common to all items](#properties-common-to-all-items)
+  - [Properties specific to `SCRIPT`, `ASSEMBLY` and `CANVAS`](#properties-specific-to-script-assembly-and-canvas)
+- [`BRINGTOFRONT` and `SENDTOBACK`](#bringtofront-and-sendtoback)
+- [The `IMAGE` item](#the-image-item)
+- [The `TEXT` item](#the-text-item)
+- [Scaling, rotating and the pole](#scaling-rotating-and-the-pole)
+- [The `ASSEMBLY` item](#the-assembly-item)
+- [`TIMEOFFSET`](#timeoffset)
+- [The `MASK` item](#the-mask-item)
+- [The `CANVAS` item](#the-canvas-item)
+- [Using a `TABLE` more than once](#using-a-table-more-than-once)
+- [Using the main script at a lower `ASSEMBLY`](#using-the-main-script-at-a-lower-assembly)
+- [Known issues](#known-issues)
+- [To do for future versions](#to-do-for-future-versions)
 
 # Typical workflow
 
@@ -380,6 +386,7 @@ Sometimes it is useful to add a higher level of hierarchy to the animation. In [
 
 * .xlsx not yet supported, only .xls
 * if `OPACITY` is less than 100% or a `MASK` is not white or black, or an `IMAGE` has partial transparency, a red shade may occur. This is probably something in Pillow 
+* `MOVIE` is not always working well. `.mpeg` seems to work better than `.mp4`, but in both cases the result does not seem to be reliable. An issue is posted at [ffmpeg-python](https://github.com/kkroening/ffmpeg-python/issues/606#issue-1034399324) 
 * `MOVIE` and `ANIMATEDGIF` do not support the `FRAMERATE`
 * Font support is not system independent
 
