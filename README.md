@@ -239,6 +239,7 @@ The position, scaling and orientation modifiers can have the following values:
 | `LINEAR`   | the property changes proportional to time                         |
 | `CYCLOID`  | the property changes with a smooth start and finish               |
 | `SPRING`   | the property moves to the other value with some dynamic overshoot |
+| `CLICK`    | the property moves with overshoot at the beginning and at the end |
 | `ACCEL`    | the property accelerates from low speed to high speed             |
 | `DAMPED`   | the property starts fast and then decelerates                     |
 
