@@ -1,18 +1,14 @@
 # ANIMATE
-Animate is an interpreter written in Python which reads a timed sequence of commands from an Excel file and a number of bitmap images, and then composes movie frames with these commands. It can make simple animations, but also much more complex ones. No Python knowledge is needed to use this library.
+Animate is an interpreter written in Python which reads a timed sequence of commands from an Excel file and a number of bitmap images, and then composes an animation  with these commands. It can make simple animations, but also much more complex ones. No Python knowledge is needed to use the library.
 
 ![Introduction](examples/12-sewing-machine/SewingMachine.gif)
 
 Features:
-* it can handle location, rotation, scale and opacity of many images in parallel
-* the transitions can be asynchronous
-* the stacking of images can be modified on the fly
-* it can use nested scripts to generate a composed image that can be used in a script on a higher level
-* since Animate uses a spreadsheet to define the animation, all parameters can be driven by relations in the spreadsheet
-* to speed up debugging
-    * Animate can create frames at a very low frame rate or it can only process frames between a certain interval
-    * only a subset of the frames can be recomputed
-    * the time can be plotted in the lower left corner of every frame    
+* it can smoothly modify location, rotation, scale and opacity of many images in parallel
+* the transitions can be independent of each other
+* since Animate uses a spreadsheet to define the animation, all parameters can be driven by calculated relations in the spreadsheet
+* the Z-order of images can be modified on the fly
+* it can use nested scripts to generate a composed image that can be used in a script on a higher hierarchical level
 * frames can be combined to produce an animated GIF or a movie
 
 Animate heavily relies on open source software such as Python, the Python Imaging Library (PIL) and XLRD. Many thanks to the creators of this great software. Please don't forget to donate to all these great projects.
@@ -29,6 +25,7 @@ Animate heavily relies on open source software such as Python, the Python Imagin
 - [Time in Animate](#time-in-animate)
   - [Debugging](#debugging)
 - [Coordinate system](#coordinate-system)
+- [Scaling, rotating and the pole](#scaling-rotating-and-the-pole)
 - [Types of items](#types-of-items)
   - [Global commands](#global-commands)
   - [Properties common to all items](#properties-common-to-all-items)
@@ -36,7 +33,6 @@ Animate heavily relies on open source software such as Python, the Python Imagin
 - [`BRINGTOFRONT` and `SENDTOBACK`](#bringtofront-and-sendtoback)
 - [The `IMAGE` item](#the-image-item)
 - [The `TEXT` item](#the-text-item)
-- [Scaling, rotating and the pole](#scaling-rotating-and-the-pole)
 - [The `ASSEMBLY` item](#the-assembly-item)
 - [`TIMEOFFSET`](#timeoffset)
 - [The `MASK` item](#the-mask-item)
@@ -47,10 +43,6 @@ Animate heavily relies on open source software such as Python, the Python Imagin
 - [To do for future versions](#to-do-for-future-versions)
 
 # Typical workflow
-
-The animation can be controlled by one or more sheets in a single Excel file:
-* In a `SCRIPT`, items can be declared and manipulated
-* A `TABLE` is similar to a script but the data is stored in tabular format and some commands cannot be used
 
 An Animate project directory looks like this:
 * An Excel file which holds all `SCRIPT`s and `TABLE`s (currently, .xls files are supported but .xlsx files not)
@@ -68,13 +60,14 @@ Animate.Model('Simulation.xls', 'Main')
 ```
 The two parameters refer to the Excel file and the name of the sheet that contains the main script.
 
+
 # Dependencies
 
 The following libraries must be installed:
 
-| <!-- --> | <!-- --> | <!-- --> |
-|----------|----------|----------|
-| `python`        | >v3.0                     | python.org                                 |
+| <!--        --> | <!--                  --> | <!--                                   --> |
+|-----------------|---------------------------|--------------------------------------------|
+| `python`        | ≥v3.0                     | python.org                                 |
 | `animate`       | pip install py-animate    | https://github.com/henkjannl/py-animate    |
 | `xlrd`          | pip install xlrd          | http://www.python-excel.org/               |
 | `pillow`        | pip install Pillow        | https://python-pillow.org/                 |
@@ -86,12 +79,13 @@ Remarks:
 * in order to use ffmpeg, the ffmpeg library itself first needs to be installed on the system
 * ffmpeg-python is a python binder to ffmpeg. Please make sure ffmpeg-python is spelled correctly, there are various similar libraries with different spelling
 
+
 # List of examples
 
 The examples are provided for inspiration:
 
-| <!-- --> | <!-- --> |
-|----------|----------|
+| <!--                                                                --> | <!--                            --> |
+|-------------------------------------------------------------------------|-------------------------------------|
 | [01-bulldozer](examples/01-bulldozer/Readme.md)                         | `SCRIPT`, `IMAGE` and `XPOS`        |
 | [02-bulldozer-with-table](examples/02-bulldozer-with-table/Readme.md)   | `TABLE`                             |
 | [03-solar-system](examples/03-solar-system/Readme.md)                   | `BRINGTOFRONT` and `SENDTOBACK`     |
@@ -110,8 +104,8 @@ A `SCRIPT` is a timed sequence of commands that influence properties
 
 The columns have a predefined meaning:
 
-| <!-- --> | <!-- --> |
-|----------|----------|
+| <!-- --> | <!--                                            --> |
+|----------|-----------------------------------------------------|
 | Column A | Contains the time at which an event takes place     |
 | Column B | Contains a property or a command                    |
 | Column C | Contains an item name or a value                    |
@@ -169,14 +163,26 @@ In [Example 2](examples/02-bulldozer-with-table/Readme.md), the `TABLE` command 
 ## Debugging
 * For debugging purposes, the `FIRSTFRAME` and `LASTFRAME` commands can be used to render a subset of the frames
 * Also for debugging purposes, it can be helpful to temporatily use a lower `FRAMERATE` to test if the animation works well
-* With a bitmap viewer such as IrfanView, it is easy to browse though the `../Frames` directory, to check which frames need to be re-rendered
+* With a bitmap viewer such as IrfanView, it is easy to browse though the `../Frames` directory, to check which frames need to be re-rendered. These frames can already be inspected while the rendering of the remaining frames is still running.
 * It is also possible to use `SHOWTIME` to display the time in each frame 
+* To temporarily disable a row, it can be useful to type a text instead of a number in column A
 
 # Coordinate system
 Animate uses the same coordinate system conventions as bitmaps:
 * the origin is in the upper left corner
 * positive X-axis is to the right
 * positive Y-axis is down
+
+# Scaling, rotating and the pole
+
+When scaling and rotating an item, the default pole of scaling and rotating is the origin of the item. The `XPOLE` and `YPOLE` commands can be used to change the coordinates of the pole of rotation and scaling. The coordinates provided with `XPOLE` and `YPOLE` are relative to origin of the item.
+
+![Xpole and Ypole](pictures/xpole_ypole.png)
+
+In [Example 4](examples/04-rotating-text/Readme.md), the `TEXT`, `XPOLE` and `YPOLE` commands are demonstrated. 
+
+[Example 5](examples/05-rotating-cloud/Readme.md) demonstrates rotation of the cloud in the original bulldozer animation.
+
 
 # Types of items
 The following types of items are defined:
@@ -186,15 +192,15 @@ The following types of items are defined:
 | `TEXT`     | displays text                                                      |
 | `ASSEMBLY` | an item that is dynamically made up of other items                 |
 | `CANVAS`   | similar to an `ASSEMBLY`, but not erased between subsequent frames |
-| `MASK`     | used to mask certain parts of the items below the mask             |
+| `MASK`     | used to hide or reveil certain parts of the items below the mask   |
 
 ## Global commands
 The following commands are only relevant for the main script. These commands are ignored for other scripts:
 
 | <!-- --> | <!-- --> |
 |----------|----------|
-| `FRAMESPERSECOND` | Sets  the number of frames per second of the animation. This is how the floating point number of the time column translates to discrete frames. |
-| `FIRSTFRAME`      | This is property for debug purposes. If the total script takes very long to process, only a subset of the frames can be processed. The value following the `FIRSTFRAME` command references the actual frame number, not the time to which the frame corresponds. |
+| `FRAMESPERSECOND` | Sets  the number of frames per second of the animation. This is the ratio between the frame number and the time in the simulation. |
+| `FIRSTFRAME`      | This is a property for debug purposes. If the total script takes very long to process, only a subset of the frames can be re-rendered. The value following the `FIRSTFRAME` command references the actual frame number, not the time to which the frame corresponds. |
 | `LASTFRAME`       | Similar to `FIRSTFRAME` to determine the last frame in the scene that is processed. |
 | `SHOWTIME`        | This property is also for debug purposes. Displays the time in the lower left corner of the frames |
 | `HIDETIME`        | Hides the time in the lower left corner of the frames |
@@ -203,8 +209,8 @@ The following commands are only relevant for the main script. These commands are
 
 Remarks:
 * For these global commands, a number must be present in column A to prevent the row is ignored, but the value of this number is ignored
-* For short animations, AnimatedGIF is conventient.
-* If the animation is larger, the GIF file will become very large, and Movie is more suitable
+* For short animations, `ANUMATEDGIF` is conventient.
+* If the animation is larger, the GIF file will become very large, and `MOVIE` is more suitable
 * The AnimatedGIF command stores the rendered images in memory and then creates the GIF at the end. This can require much memory. Only the frames between `FIRSTFRAME` and `LASTFRAME` end up in the animated GIF
 * The Movie command uses the frames in the `../Frames` directory. Therefore, all rendered frames are used. If going from a high to a low `FRAMERATE`, ensure to remove the frames that are no longer needed from the `../Frames` directory before creating the movie
 * If you plan to create a movie, please choose a standard movie format, such as 720x576 (PAL) 1280×720 (HD720p) or 1920×1080 (HD1080p), to ensure the output is compatible with standard movie players.
@@ -299,20 +305,6 @@ All properties that apply to other items, such as `XPOS` and `XSCALE`, also appl
 # The `TEXT` item
 
 The `TEXT` command declares a `TEXT` item and immediately assigns a text value to it. The text value can be changed ad different moments in time.
-
-# Scaling, rotating and the pole
-
-When scaling and rotating an item, the default pole of scaling and rotating is the upper left corner of the item.
-
-The `XPOLE` and `YPOLE` commands can be used to change the coordinates of the pole of rotation and scaling. 
-
-The coordinates provided with `XPOLE` and `YPOLE` are relative to the upper left corner of the item to which they apply.
-
-![Xpole and Ypole](pictures/xpole_ypole.png)
-
-In [Example 4](examples/04-rotating-text/Readme.md), the `TEXT`, `XPOLE` and `YPOLE` commands are demonstrated. 
-
-[Example 5](examples/05-rotating-cloud/Readme.md), demonstrates rotation of the cloud in the original bulldozer animation.
 
 # The `ASSEMBLY` item
 

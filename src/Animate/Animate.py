@@ -23,6 +23,31 @@ import Animate.Constants
 #Todo: make this platform and -system independent
 DEFAULTFONT = "C:\\WINDOWS\\Fonts\\verdana.TTF"
 
+def timefmt(t):
+
+    MIN  = 60
+    HOUR = 60*MIN
+    DAY  = 24*HOUR
+    WEEK = 7*DAY
+    YEAR = 365.25*DAY
+    MONTH=YEAR/12
+
+    if t>=YEAR:
+        return "{:.1f} years".format(t/YEAR) 
+    elif t>=MONTH:
+        return "{:.1f} months".format(t/MONTH) 
+    elif t>=WEEK:
+        return "{:.1f} weeks".format(t/WEEK) 
+    elif t>=DAY:
+        return "{:.1f} days".format(t/DAY) 
+    elif t>=HOUR:
+        return "{:.1f} hours".format(t/HOUR) 
+    elif t>=MIN:
+        return "{:.1f} min".format(t/MIN) 
+    else:
+        return "{:.1f} sec".format(t) 
+
+
 def Model(FileName, SheetName):
 
     print('### PARSING SCRIPTS  ###')
@@ -105,7 +130,7 @@ def Model(FileName, SheetName):
         SecondsPassed = time.time() - StartTime
         SecondsToGo = SecondsPassed*(100-PercentageReady)/(PercentageReady)
 
-        print('Generating frame %05d  t=%.2f s  %.1f%% ready. %.1f seconds to go' % (Frame, Time, PercentageReady, SecondsToGo))
+        print('Generating frame %05d  t=%.2f s  %.1f%% ready, %s to go' % (Frame, Time, PercentageReady, timefmt(SecondsToGo)))
 
         # Start with a white image
         Picture = Image.new("RGBA", (Main.Width,Main.Height), color = '#FFFFFF' )
