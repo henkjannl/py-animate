@@ -23,21 +23,23 @@ Animate heavily relies on open source software such as Python, the Python Imagin
 - [List of examples](#list-of-examples)
 - [The `SCRIPT` command](#the-script-command)
 - [The `TABLE` command](#the-table-command)
-- [Time in Animate](#time-in-animate)
-  - [Debugging](#debugging)
-- [Coordinate system](#coordinate-system)
-- [Scaling, rotating and the pole](#scaling-rotating-and-the-pole)
 - [Types of items](#types-of-items)
+  - [The `IMAGE` item](#the-image-item)
+  - [The `TEXT` item](#the-text-item)
+  - [The `ASSEMBLY` item](#the-assembly-item)
+  - [The `CANVAS` item](#the-canvas-item)
+  - [`TIMEOFFSET`](#timeoffset)
+  - [The `MASK` item](#the-mask-item)
+- [Commands and properties](#commands-and-properties)
   - [Global commands](#global-commands)
-  - [Properties common to all items](#properties-common-to-all-items)
+  - [Time in Animate](#time-in-animate)
+    - [Debugging](#debugging)
   - [Properties specific to `SCRIPT`, `ASSEMBLY` and `CANVAS`](#properties-specific-to-script-assembly-and-canvas)
+  - [Properties common to all items](#properties-common-to-all-items)
+  - [Coordinate system](#coordinate-system)
+    - [Scaling, rotating and the pole](#scaling-rotating-and-the-pole)
+  - [Speed modifiers](#speed-modifiers)
 - [`BRINGTOFRONT` and `SENDTOBACK`](#bringtofront-and-sendtoback)
-- [The `IMAGE` item](#the-image-item)
-- [The `TEXT` item](#the-text-item)
-- [The `ASSEMBLY` item](#the-assembly-item)
-- [The `CANVAS` item](#the-canvas-item)
-- [`TIMEOFFSET`](#timeoffset)
-- [The `MASK` item](#the-mask-item)
 - [Using a `TABLE` more than once](#using-a-table-more-than-once)
 - [Using the main script at a lower `ASSEMBLY`](#using-the-main-script-at-a-lower-assembly)
 - [Known issues](#known-issues)
@@ -114,11 +116,11 @@ The columns have a predefined meaning:
 
 Remarks:
 * The other columns can be used for comments or for calculations
-* If the cell in column A does not contain a number, the complete row is ignored by the script and can be considered to be a comment
-* The time does not have to be ordered
-* By definition, Frame0000 corresponds to time 0.00 seconds in the main `SCRIPT`
+* If the cell in column A does not contain a number, the row is ignored by the script
+* The times do not have to be ordered
+* By definition, `Frame0000` corresponds to t=0 s in the main `SCRIPT`
 * Items do not need to be explicitly created. If the item occurs for the first time in the script, Animate automatically creates a new item. Therefore, pay attention to spell the names of the items correctly; if an item name is spelled incorrectly, a second item will be created
-* Animate checks if every `Image` item has at least one image designated. If not, an error is raised.
+* Animate checks if every `Image` item has at least one image assigned. If not, an error is raised.
 * Commands, properties and item names are not case sensitive
 * All items have most properties in common
 
@@ -152,39 +154,6 @@ Remarks:
 
 In [Example 2](examples/02-bulldozer-with-table/Readme.md), the `TABLE` command is demonstrated. 
 
-# Time in Animate
-
-* In Animate, time is specified in seconds
-* By definition, the animation starts at 0 seconds and frame 0 corresponds to t=0 s
-* The `FRAMERATE` command defines the ratio between frames and seconds
-* Rendered frames are stored in the `../Frames` subdirectory. If this directory does not exist, it will be created by Animate
-* By default, the last event in all script is used to determine how long the animation takes
-* If a shorter animation is desired, the `LASTFRAME` command can be used to define the duration. Note that this is a frame number and not a time in seconds
-
-## Debugging
-* For debugging purposes, the `FIRSTFRAME` and `LASTFRAME` commands can be used to render a subset of the frames
-* Also for debugging purposes, it can be helpful to temporatily use a lower `FRAMERATE` to test if the animation works well
-* With a bitmap viewer such as IrfanView, it is easy to browse though the `../Frames` directory, to check which frames need to be re-rendered. These frames can already be inspected while the rendering of the remaining frames is still running.
-* It is also possible to use `SHOWTIME` to display the time in each frame 
-* To temporarily disable a row, it can be useful to type a text instead of a number in column A
-
-# Coordinate system
-Animate uses the same coordinate system conventions as bitmaps:
-* the origin is in the upper left corner
-* positive X-axis is to the right
-* positive Y-axis is down
-
-# Scaling, rotating and the pole
-
-When scaling and rotating an item, the default pole of scaling and rotating is the origin of the item. The `XPOLE` and `YPOLE` commands can be used to change the coordinates of the pole of rotation and scaling. The coordinates provided with `XPOLE` and `YPOLE` are relative to origin of the item.
-
-![Xpole and Ypole](pictures/xpole_ypole.png)
-
-In [Example 4](examples/04-rotating-text/Readme.md), the `TEXT`, `XPOLE` and `YPOLE` commands are demonstrated. 
-
-[Example 5](examples/05-rotating-cloud/Readme.md) demonstrates rotation of the cloud in the original bulldozer animation.
-
-
 # Types of items
 The following types of items are defined:
 | <!-- --> | <!-- --> |
@@ -195,113 +164,9 @@ The following types of items are defined:
 | `CANVAS`   | similar to an `ASSEMBLY`, but not erased between subsequent frames |
 | `MASK`     | used to hide or reveil certain parts of the items below the mask   |
 
-## Global commands
-The following commands are only relevant for the main script. These commands are ignored for other scripts:
-
-| <!-- --> | <!-- --> |
-|----------|----------|
-| `FRAMESPERSECOND` | Sets  the number of frames per second of the animation. This is the ratio between the frame number and the time in the simulation. |
-| `FIRSTFRAME`      | This is a property for debug purposes. If the total script takes very long to process, only a subset of the frames can be re-rendered. The value following the `FIRSTFRAME` command references the actual frame number, not the time to which the frame corresponds. |
-| `LASTFRAME`       | Similar to `FIRSTFRAME` to determine the last frame in the scene that is processed. |
-| `SHOWTIME`        | This property is also for debug purposes. Displays the time in the lower left corner of the frames |
-| `HIDETIME`        | Hides the time in the lower left corner of the frames |
-| `ANIMATEDGIF`     | Creates an animated GIF of the frames that were created, with a filename followed by the `ANIMATEDGIF` command |
-| `MOVIE`           | Creates an mpeg movie of the frames that were created, with a filename followed by the `MOVIE` command |
-
-Remarks:
-* For these global commands, a number must be present in column A to prevent the row is ignored, but the value of this number is ignored
-* For short animations, `ANUMATEDGIF` is conventient.
-* If the animation is larger, the GIF file will become very large, and `MOVIE` is more suitable
-* The AnimatedGIF command stores the rendered images in memory and then creates the GIF at the end. This can require much memory. Only the frames between `FIRSTFRAME` and `LASTFRAME` end up in the animated GIF
-* The Movie command uses the frames in the `../Frames` directory. Therefore, all rendered frames are used. If going from a high to a low `FRAMERATE`, ensure to remove the frames that are no longer needed from the `../Frames` directory before creating the movie
-* If you plan to create a movie, please choose a standard movie format, such as 720x576 (PAL) 1280×720 (HD720p) or 1920×1080 (HD1080p), to ensure the output is compatible with standard movie players.
-* After the Movie or AnimatedGIF has been created, the `../Frames` directory can be removed to save disk space
-
-## Properties common to all items
-All items have the following properties in common:
-
-Position, scaling and orientation:
-| <!-- --> | <!-- --> |
-|----------|----------|
-| `XPOS`     | The horizontal position on which the item is positioned.<br>The position corresponds to the position of the image as if the rotation of the image is zero and the scale is 100% in horizontal and vertical direction.<br>Note that the origin of the coordinate system is the top left corner of the image, if `XPOS`=0, the left side of the item will be aligned to the left side of the output stream. |
-| `YPOS`     | The vertical position on which the item is positioned.<br>Note that the origin of the coordinate system is the top left corner of the image, if `YPOS`=0, the top of the item will be aligned to the top of the output stream. |
-| `ROTATION` | The rotation of the item in degrees.<br>Positive angles are counterclockwise.<br>Angles can be less than 0° or more than 360° to support multiple revolutions.<br>Rotation and scaling is explained in more detail [in this paragraph](#scaling-rotating-and-the-pole) |
-| `XSCALE`   | The scale of the item in horizontal direction. A value of 1 means that the scale is not changed.<br>See also the paragraph on [the pole](#scaling-rotating-and-the-pole) |
-| `YSCALE`   | The scale of the item in vertical direction.<br>See also the paragraph on [the pole](#scaling-rotating-and-the-pole)         |
-
-Position, scaling and orientation modifiers:
-
-| <!-- --> | <!-- --> |
-|----------|----------|
-| `XMOVE`    | The velocity profile of the movements in horizontal direction. Possible values are explained below |
-| `YMOVE`    | The velocity profile of the movements in vertical direction                                        |
-| `RMOVE`    | The velocity profile of rotation                                                                   |
-| `SXMOVE`   | The velocity profile of scaling in horizontal direction                                            |
-| `SYMOVE`   | The velocity profile of scaling in vertical direction                                              |
-| `OMOVE`    | The velocity profile for changing opacity                                                          |
-
-The position, scaling, orientation and opacity modifiers can have the following values:
-
-| <!-- --> | <!-- --> |
-|----------|----------|
-| `LINEAR`   | the property changes proportional to time                         |
-| `CYCLOID`  | the property changes with a smooth start and finish               |
-| `SPRING`   | the property moves to the other value with some dynamic overshoot |
-| `CLICK`    | the property moves with overshoot at the beginning and at the end |
-| `ACCEL`    | the property accelerates from low speed to high speed             |
-| `DAMPED`   | the property starts fast and then decelerates                     |
-| `SUDDEN`   | the property suddenly moves at the end of the interval            |
-
-The different values can be depicted as follows:
-
-![](pictures/move.png)
-
-Remarks:
-* `SUDDEN` can be useful when switching `OPACITY`
-
-
-Other properties that are common to all items:
-
-| <!-- --> | <!-- --> |
-|----------|----------|
-| `XPOLE`        | The pole around which the item is rotated and scaled |
-| `YPOLE`        | The pole around which the item is rotated and scaled |
-| `OPACITY`      | Determines the transparency of the item. A value of 0 means the item is invisible, a value of 1 means the item is opaque | 
-| `BRINGTOFRONT` | Changes the Z-order of the item list, bringing this item on top of the others. This property does not need a value |
-| `SENDTOBACK`   | Changes the Z-order of the item list, sending this item to the bottom of the list |
-| `TEXTCOLOR`    | Specific for text items: the color for the font of the text |
-| `FONT`         | Specific for text items: the font for the text              |
-
-## Properties specific to `SCRIPT`, `ASSEMBLY` and `CANVAS`
-
-| <!--     --> | <!-- --> |
-|--------------|----------|
-| `WIDTH`      | Sets the width of the output frames, measured in pixels                |
-| `HEIGHT`     | Sets the height of the output frames                                   |
-| `SCRIPT`     | Calls a `SCRIPT` in another worksheet                                  |
-| `TABLE`      | Calls a `TABLE` in another worksheet                                   |
-| `ASSEMBLY`   | Creates an `ASSEMBLY` item and calls the worksheet where it is defined. The worksheet that is referred to must be formatted as a `SCRIPT` |
-| `CANVAS`     | Creates a `CANVAS` item and calls the worksheet where it is defined. The worksheet that is referred to must be formatted as a `SCRIPT`    |
-| `TIMEOFFSET` | Applies only to `ASSEMBLY` and `CANVAS`. Determines the time difference between the time base of the calling script and the called script. This is useful if the `ASSEMBLY` or `CANVAS` are called more than once with different instances. This way, not all instances need to start at the same moment, but the same `SCRIPT` or `TABLE` can be used to define each instance. |
-
-Remarks:
-* Commands and properties are not case sensitive
-
 <br>
 
-# `BRINGTOFRONT` and `SENDTOBACK`
-
-Items are ordered in a certain Z-order, meaning some items are placed in front of other items. An item can be put in front of all other items using `BRINGTOFRONT`, and placed at the back using `SENDTOBACK`. 
-
-Remarks:
-* This changes the order of items within a `SCRIPT`, `ASSEMBLY` or `CANVAS`. 
-* The `ASSEMBLY` or `CANVAS` can also be placed in front of or behind other items in the script in which they are defined.
-
-In [Example 3](examples/03-solar-system/Readme.md), the `BRINGTOFRONT` and `SENDTOBACK` are demonstrated. 
-
-<br>
-
-# The `IMAGE` item
+## The `IMAGE` item
 
 The `IMAGE` command loads an image from file and links it to an item with a unique name.
 
@@ -311,13 +176,13 @@ The example below creates an item called Glass, and loads different images at 4 
 
 <br>
 
-# The `TEXT` item
+## The `TEXT` item
 
 The `TEXT` command declares a `TEXT` item and immediately assigns a text value to it. The text value can be changed ad different moments in time.
 
 <br>
 
-# The `ASSEMBLY` item
+## The `ASSEMBLY` item
 
 The main script can call an `ASSEMBLY`, which is in fact another script which can be used as an item. Multiple levels can be cascaded. The main script can display a single `ASSEMBLY` multiple times, for example with different scaling, position, rotation or mask.
 
@@ -327,7 +192,7 @@ In the following example, the bulldozer from example 1 is animated. This time, t
 
 <br>
 
-# The `CANVAS` item
+## The `CANVAS` item
 
 A `CANVAS` is like an `ASSEMBLY`; the difference is that the image is not erased in between frames. A `CANVAS` can be useful as a drawing board, to draw text or a graph.
 
@@ -337,9 +202,9 @@ A `CANVAS` is like an `ASSEMBLY`; the difference is that the image is not erased
 
 <br>
 
-# `TIMEOFFSET`
+## `TIMEOFFSET`
 
-Sometimes it is useful to work with multiple instances of an `ASSEMBLY` or `CANVAS`, but each instance must have an offset in time.
+It is possible to work with multiple instances of an `ASSEMBLY` or `CANVAS`, but give each instance a different offset in time.
 
 For each instance, it is possible to call the `TIMEOFFSET` to specify that the instance must start at a different moment in time.
 
@@ -366,7 +231,7 @@ This demonstrates that negative times in the called `ASSEMBLY` or `CANVAS` can o
 
 <br>
 
-# The `MASK` item
+## The `MASK` item
 
 A `MASK` is used to reveil some parts of the underlying stack, or conceil others. 
 
@@ -378,6 +243,146 @@ The `MASK` accepts a filename as an argument. It works in the following way:
 At different moments in time, a different bitmap can be loaded as `MASK`.
 
 [Example 8](examples/08-two-cylinders/Readme.md) demonstrates the `MASK` item.
+
+<br>
+
+# Commands and properties
+## Global commands
+The following commands are only relevant for the main script. These commands are ignored for other scripts:
+
+| <!-- --> | <!-- --> |
+|----------|----------|
+| `FRAMESPERSECOND` | Sets  the number of frames per second of the animation. This is the ratio between the frame number and the time in the simulation. |
+| `FIRSTFRAME`      | This is a property for debug purposes. If the total script takes very long to process, only a subset of the frames can be re-rendered. The value following the `FIRSTFRAME` command references the actual frame number, not the time to which the frame corresponds. |
+| `LASTFRAME`       | Similar to `FIRSTFRAME` to determine the last frame in the scene that is processed. |
+| `SHOWTIME`        | This property is also for debug purposes. Displays the time in the lower left corner of the frames |
+| `HIDETIME`        | Hides the time in the lower left corner of the frames |
+| `ANIMATEDGIF`     | Creates an animated GIF of the frames that were created, with a filename followed by the `ANIMATEDGIF` command |
+| `MOVIE`           | Creates an mpeg movie of the frames that were created, with a filename followed by the `MOVIE` command |
+
+Remarks:
+* For these global commands, a number must be present in column A to prevent the row is ignored, but the value of this number is ignored
+* For short animations, `ANUMATEDGIF` is conventient.
+* If the animation is larger, the GIF file will become very large, and `MOVIE` is more suitable
+* The AnimatedGIF command stores the rendered images in memory and then creates the GIF at the end. This can require much memory. Only the frames between `FIRSTFRAME` and `LASTFRAME` end up in the animated GIF
+* The Movie command uses the frames in the `../Frames` directory. Therefore, all rendered frames are used. If going from a high to a low `FRAMERATE`, ensure to remove the frames that are no longer needed from the `../Frames` directory before creating the movie
+* If you plan to create a movie, please choose a standard movie format, such as 720x576 (PAL) 1280×720 (HD720p) or 1920×1080 (HD1080p), to ensure the output is compatible with standard movie players.
+* After the Movie or AnimatedGIF has been created, the `../Frames` directory can be removed to save disk space
+
+## Time in Animate
+
+* In Animate, time is specified in seconds
+* By definition, the animation starts at 0 seconds and frame 0 corresponds to t=0 s
+* The `FRAMERATE` command defines the ratio between frames and seconds
+* Rendered frames are stored in the `../Frames` subdirectory. If this directory does not exist, it will be created by Animate
+* By default, the last event in all script is used to determine how long the animation takes
+* If a shorter animation is desired, the `LASTFRAME` command can be used to define the duration. Note that this is a frame number and not a time in seconds
+
+### Debugging
+* For debugging purposes, the `FIRSTFRAME` and `LASTFRAME` commands can be used to render a subset of the frames
+* Also for debugging purposes, it can be helpful to temporatily use a lower `FRAMERATE` to test if the animation works well
+* With a bitmap viewer such as IrfanView, it is easy to browse though the `../Frames` directory, to check which frames need to be re-rendered. These frames can already be inspected while the rendering of the remaining frames is still running.
+* It is also possible to use `SHOWTIME` to display the time in each frame 
+* To temporarily disable a row, it can be useful to type a text instead of a number in column A
+
+## Properties specific to `SCRIPT`, `ASSEMBLY` and `CANVAS`
+
+| <!--     --> | <!-- --> |
+|--------------|----------|
+| `WIDTH`      | Sets the width of the output frames, measured in pixels                |
+| `HEIGHT`     | Sets the height of the output frames                                   |
+| `SCRIPT`     | Calls a `SCRIPT` in another worksheet                                  |
+| `TABLE`      | Calls a `TABLE` in another worksheet                                   |
+| `ASSEMBLY`   | Creates an `ASSEMBLY` item and calls the worksheet where it is defined. The worksheet that is referred to must be formatted as a `SCRIPT` |
+| `CANVAS`     | Creates a `CANVAS` item and calls the worksheet where it is defined. The worksheet that is referred to must be formatted as a `SCRIPT`    |
+| `TIMEOFFSET` | Applies only to `ASSEMBLY` and `CANVAS`. Determines the time difference between the time base of the calling script and the called script. This is useful if the `ASSEMBLY` or `CANVAS` are called more than once with different instances. This way, not all instances need to start at the same moment, but the same `SCRIPT` or `TABLE` can be used to define each instance. |
+
+Remarks:
+* Commands and properties are not case sensitive
+
+<br>
+
+## Properties common to all items
+All items have the following properties in common:
+
+| <!--       --> | <!-- --> |
+|----------------|----------|
+| `XPOS`         | The horizontal position on which the item is positioned.<br>The position corresponds to the position of the image as if the rotation of the image is zero and the scale is 100% in horizontal and vertical direction.<br>Note that the origin of the coordinate system is the top left corner of the image, if `XPOS`=0, the left side of the item will be aligned to the left side of the output stream. |
+| `YPOS`         | The vertical position on which the item is positioned.<br>Note that the origin of the coordinate system is the top left corner of the image, if `YPOS`=0, the top of the item will be aligned to the top of the output stream. |
+| `ROTATION`     | The rotation of the item in degrees.<br>Positive angles are counterclockwise.<br>Angles can be less than 0° or more than 360° to support multiple revolutions.<br>Rotation and scaling is explained in more detail [in this paragraph](#scaling-rotating-and-the-pole) |
+| `XSCALE`       | The scale of the item in horizontal direction. A value of 1 means that the scale is not changed.<br>See also the paragraph on [the pole](#scaling-rotating-and-the-pole) |
+| `YSCALE`       | The scale of the item in vertical direction.<br>See also the paragraph on [the pole](#scaling-rotating-and-the-pole)         |
+| `XPOLE`        | The pole around which the item is rotated and scaled |
+| `YPOLE`        | The pole around which the item is rotated and scaled |
+| `OPACITY`      | Determines the transparency of the item. A value of 0 means the item is invisible, a value of 1 means the item is opaque | 
+| `BRINGTOFRONT` | Changes the Z-order of the item list, bringing this item on top of the others. This property does not need a value. See [`BRINGTOFRONT` and `SENDTOBACK`](#bringtofront-and-sendtoback) |
+| `SENDTOBACK`   | Changes the Z-order of the item list, sending this item to the bottom of the list. See [`BRINGTOFRONT` and `SENDTOBACK`](#bringtofront-and-sendtoback) |
+| `TEXTCOLOR`    | Specific for text items: the color for the font of the text |
+| `FONT`         | Specific for text items: the font for the text              |
+
+## Coordinate system
+Animate uses the same coordinate system conventions as bitmaps:
+* the origin is in the upper left corner
+* positive X-axis is to the right
+* positive Y-axis is down
+
+### Scaling, rotating and the pole
+
+When scaling and rotating an item, the default pole of scaling and rotating is the origin of the item. The `XPOLE` and `YPOLE` commands can be used to change the coordinates of the pole of rotation and scaling. The coordinates provided with `XPOLE` and `YPOLE` are relative to origin of the item.
+
+![Xpole and Ypole](pictures/xpole_ypole.png)
+
+In [Example 4](examples/04-rotating-text/Readme.md), the `TEXT`, `XPOLE` and `YPOLE` commands are demonstrated. 
+
+[Example 5](examples/05-rotating-cloud/Readme.md) demonstrates rotation of the cloud in the original bulldozer animation.
+
+<br>
+
+
+## Speed modifiers
+
+Transitions for `XPOS`, `YPOS`, `ROTATION`, `XSCALE`, `YSCALE` and `OPACITY` can be made smoother by using their respective speed modifiers:
+
+| <!--   --> | <!-- --> |
+|------------|----------|
+| `XMOVE`    | The velocity profile of the movements in horizontal direction. Possible values are explained below |
+| `YMOVE`    | The velocity profile of the movements in vertical direction                                        |
+| `RMOVE`    | The velocity profile of rotation                                                                   |
+| `SXMOVE`   | The velocity profile of scaling in horizontal direction                                            |
+| `SYMOVE`   | The velocity profile of scaling in vertical direction                                              |
+| `OMOVE`    | The velocity profile for changing opacity                                                          |
+
+The position, scaling, orientation and opacity modifiers can have the following values:
+
+| <!--   --> | <!-- --> |
+|------------|----------|
+| `LINEAR`   | the property changes proportional to time                         |
+| `CYCLOID`  | the property changes with a smooth start and finish               |
+| `SPRING`   | the property moves to the other value with some dynamic overshoot |
+| `CLICK`    | the property moves with overshoot at the beginning and at the end |
+| `ACCEL`    | the property accelerates from low speed to high speed             |
+| `DAMPED`   | the property starts fast and then decelerates                     |
+| `SUDDEN`   | the property suddenly moves at the end of the interval            |
+
+The different values can be depicted as follows:
+
+![](pictures/move.png)
+
+Remarks:
+* The default setting for all move modifiers is `LINEAR`
+* `SUDDEN` can be useful when switching `OPACITY`
+
+<br>
+
+# `BRINGTOFRONT` and `SENDTOBACK`
+
+Items are ordered in a certain Z-order, meaning some items are placed in front of other items. An item can be put in front of all other items using `BRINGTOFRONT`, and placed at the back using `SENDTOBACK`. 
+
+Remarks:
+* This changes the order of items within a `SCRIPT`, `ASSEMBLY` or `CANVAS`. 
+* The `ASSEMBLY` or `CANVAS` can also be placed in front of or behind other items in the script in which they are defined.
+
+In [Example 3](examples/03-solar-system/Readme.md), the `BRINGTOFRONT` and `SENDTOBACK` are demonstrated. 
 
 <br>
 
@@ -399,7 +404,7 @@ Sometimes it is useful to add a higher level of hierarchy to the animation. In [
 
 * .xlsx not yet supported, only .xls
 * if `OPACITY` is less than 100% or a `MASK` is not white or black, or an `IMAGE` has partial transparency, a red shade may occur. This is probably something in Pillow 
-* `MOVIE` is not always working well. `.mpeg` seems to work better than `.mp4`, but in both cases the result does not seem to be reliable. An issue is posted at [ffmpeg-python](https://github.com/kkroening/ffmpeg-python/issues/606#issue-1034399324) 
+* `MOVIE` is not always working well. `.mp4` seems to work better than `.mpeg`, but in both cases the result does not seem to be reliable. VLC media player can be used to convert a buggy `.mp4` into one that is accepted by other viewers. An issue is posted at [ffmpeg-python](https://github.com/kkroening/ffmpeg-python/issues/606#issue-1034399324) 
 * `MOVIE` and `ANIMATEDGIF` do not support the `FRAMERATE`
 * Font support is not system independent
 
