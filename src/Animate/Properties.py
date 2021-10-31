@@ -75,7 +75,7 @@ class AnalogProperty(DiscreteProperty):
                     relativevalue = Displacement(interpolation, (time-t0) / (t1-t0) )
                     result=y0+relativevalue*(y1-y0)
                 except:
-                    print("Error in properties line 76")
+                    print("Error in properties line 78")
                     print("interpolation={inter} time={tim} t0={t0} t1={t1}".format(inter=interpolation, tim=time, t0=t0, t1=t1))
                     print("y1={y1} relative={rel} y0={y0}".format(y1=y1, rel=relativevalue, y0=y0))
                     exit(0)

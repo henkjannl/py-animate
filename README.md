@@ -1,5 +1,6 @@
 # ANIMATE
-Animate is an interpreter written in Python which reads a timed sequence of commands from an Excel file and a number of bitmap images, and then composes an animation  with these commands. It can make simple animations, but also much more complex ones. No Python knowledge is needed to use the library.
+
+Animate is an interpreter written in Python which reads commands from an Excel file and some bitmap images and composes an animation  with these commands. It can make simple animations, but also much more complex ones. No Python knowledge is needed to use the library.
 
 ![Introduction](examples/12-sewing-machine/SewingMachine.gif)
 
@@ -34,9 +35,9 @@ Animate heavily relies on open source software such as Python, the Python Imagin
 - [The `IMAGE` item](#the-image-item)
 - [The `TEXT` item](#the-text-item)
 - [The `ASSEMBLY` item](#the-assembly-item)
+- [The `CANVAS` item](#the-canvas-item)
 - [`TIMEOFFSET`](#timeoffset)
 - [The `MASK` item](#the-mask-item)
-- [The `CANVAS` item](#the-canvas-item)
 - [Using a `TABLE` more than once](#using-a-table-more-than-once)
 - [Using the main script at a lower `ASSEMBLY`](#using-the-main-script-at-a-lower-assembly)
 - [Known issues](#known-issues)
@@ -233,12 +234,13 @@ Position, scaling and orientation modifiers:
 | <!-- --> | <!-- --> |
 |----------|----------|
 | `XMOVE`    | The velocity profile of the movements in horizontal direction. Possible values are explained below |
-| `YMOVE`    | The velocity profile of the movements in vertical direction |
-| `RMOVE`    | The velocity profile of rotation |
-| `SXMOVE`   | The velocity profile of scaling in horizontal direction |
-| `SYMOVE`   | The velocity profile of scaling in vertical direction |
+| `YMOVE`    | The velocity profile of the movements in vertical direction                                        |
+| `RMOVE`    | The velocity profile of rotation                                                                   |
+| `SXMOVE`   | The velocity profile of scaling in horizontal direction                                            |
+| `SYMOVE`   | The velocity profile of scaling in vertical direction                                              |
+| `OMOVE`    | The velocity profile for changing opacity                                                          |
 
-The position, scaling and orientation modifiers can have the following values:
+The position, scaling, orientation and opacity modifiers can have the following values:
 
 | <!-- --> | <!-- --> |
 |----------|----------|
@@ -248,10 +250,15 @@ The position, scaling and orientation modifiers can have the following values:
 | `CLICK`    | the property moves with overshoot at the beginning and at the end |
 | `ACCEL`    | the property accelerates from low speed to high speed             |
 | `DAMPED`   | the property starts fast and then decelerates                     |
+| `SUDDEN`   | the property suddenly moves at the end of the interval            |
 
 The different values can be depicted as follows:
 
 ![](pictures/move.png)
+
+Remarks:
+* `SUDDEN` can be useful when switching `OPACITY`
+
 
 Other properties that are common to all items:
 
@@ -274,13 +281,13 @@ Other properties that are common to all items:
 | `SCRIPT`     | Calls a `SCRIPT` in another worksheet                                  |
 | `TABLE`      | Calls a `TABLE` in another worksheet                                   |
 | `ASSEMBLY`   | Creates an `ASSEMBLY` item and calls the worksheet where it is defined. The worksheet that is referred to must be formatted as a `SCRIPT` |
-| `CANVAS`     | Creates a `CANVAS` item and calls the worksheet where it is defined. The worksheet that is referred to must be formatted as a `SCRIPT` |
-| `IMAGE`      | Loads a different image for an `IMAGE` item                            |
-| `TEXT`       | Overwrites the text for a `TEXT` item                                  |
+| `CANVAS`     | Creates a `CANVAS` item and calls the worksheet where it is defined. The worksheet that is referred to must be formatted as a `SCRIPT`    |
 | `TIMEOFFSET` | Applies only to `ASSEMBLY` and `CANVAS`. Determines the time difference between the time base of the calling script and the called script. This is useful if the `ASSEMBLY` or `CANVAS` are called more than once with different instances. This way, not all instances need to start at the same moment, but the same `SCRIPT` or `TABLE` can be used to define each instance. |
 
 Remarks:
 * Commands and properties are not case sensitive
+
+<br>
 
 # `BRINGTOFRONT` and `SENDTOBACK`
 
@@ -292,6 +299,8 @@ Remarks:
 
 In [Example 3](examples/03-solar-system/Readme.md), the `BRINGTOFRONT` and `SENDTOBACK` are demonstrated. 
 
+<br>
+
 # The `IMAGE` item
 
 The `IMAGE` command loads an image from file and links it to an item with a unique name.
@@ -300,11 +309,13 @@ The example below creates an item called Glass, and loads different images at 4 
 
 ![](pictures/image.png)
 
-All properties that apply to other items, such as `XPOS` and `XSCALE`, also apply to image items.
+<br>
 
 # The `TEXT` item
 
 The `TEXT` command declares a `TEXT` item and immediately assigns a text value to it. The text value can be changed ad different moments in time.
+
+<br>
 
 # The `ASSEMBLY` item
 
@@ -313,6 +324,18 @@ The main script can call an `ASSEMBLY`, which is in fact another script which ca
 In the following example, the bulldozer from example 1 is animated. This time, the bulldozer is not a static image, but the wheel and the bucket of the bulldozer can move. 
 
 [Example 6](examples/06-bulldozer-with-bucket/Readme.md) demonstrates the `ASSEMBLY` item.
+
+<br>
+
+# The `CANVAS` item
+
+A `CANVAS` is like an `ASSEMBLY`; the difference is that the image is not erased in between frames. A `CANVAS` can be useful as a drawing board, to draw text or a graph.
+
+<br>
+
+[Example 9](examples/09-canvas/Readme.md) demonstrates the `CANVAS` item.
+
+<br>
 
 # `TIMEOFFSET`
 
@@ -339,9 +362,9 @@ To let the item start later than the calling script, the offset is subtracted fr
 
 This demonstrates that negative times in the called `ASSEMBLY` or `CANVAS` can occur. It is possible to also provide negative times in the called scripts to define the behaviour for negative values of the time.
 
-
 [Example 7](examples/07-Bouncing-balls/Readme.md), demonstrates the `TIMEOFFSET` command.
 
+<br>
 
 # The `MASK` item
 
@@ -356,14 +379,7 @@ At different moments in time, a different bitmap can be loaded as `MASK`.
 
 [Example 8](examples/08-two-cylinders/Readme.md) demonstrates the `MASK` item.
 
-# The `CANVAS` item
-
-A `CANVAS` is like an `ASSEMBLY`; the difference is that the image is not erased in between frames. A `CANVAS` can be useful as a drawing board, to draw text or a graph.
-
 <br>
-
-[Example 9](examples/09-canvas/Readme.md) demonstrates the `CANVAS` item.
-
 
 # Using a `TABLE` more than once
 
@@ -371,9 +387,13 @@ Sometimes it is useful to plan out the transformations well. In the example belo
 
 [Example 10](examples/10-car/Readme.md) demonstrates a more complex use of the `TABLE` command, where multiple items in different scripts are controlled by a single `TABLE`.
 
+<br>
+
 # Using the main script at a lower `ASSEMBLY`
 
 Sometimes it is useful to add a higher level of hierarchy to the animation. In [Example 11](examples/11-camera/Readme.md), the original 'Main' `SCRIPT` of the previous example is now renamed 'Map'. In the new script, this `SCRIPT` is used twice: once in an `ASSEMBLY` named 'FixedMap', which is used in the same way as the original example, and once in another `ASSEMBLY` named 'Radar'. The 'Radar' `ASSEMBLY` acts as a small camera inset, showing where the car is driving on the map. Still, all motion is controlled by a single `TABLE` called 'Route'.
+
+<br>
 
 # Known issues
 
@@ -382,6 +402,8 @@ Sometimes it is useful to add a higher level of hierarchy to the animation. In [
 * `MOVIE` is not always working well. `.mpeg` seems to work better than `.mp4`, but in both cases the result does not seem to be reliable. An issue is posted at [ffmpeg-python](https://github.com/kkroening/ffmpeg-python/issues/606#issue-1034399324) 
 * `MOVIE` and `ANIMATEDGIF` do not support the `FRAMERATE`
 * Font support is not system independent
+
+<br>
 
 # To do for future versions
 

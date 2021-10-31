@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="573.99994"
+   height="131.47859"
+   viewBox="0 0 151.87082 34.787045"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
+   sodipodi:docname="pictures.svg"
+   inkscape:export-filename="C:\Users\hj.vanderpol\Documents\IOT\py-animate\pictures\move.png"
+   inkscape:export-xdpi="100.34844"
+   inkscape:export-ydpi="100.34844">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.8349922"
+     inkscape:cx="268.47127"
+     inkscape:cy="65.739298"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer2"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     units="px"
+     fit-margin-top="3"
+     fit-margin-left="3"
+     fit-margin-right="3"
+     fit-margin-bottom="3"
+     lock-margins="true" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 2"
+     transform="translate(0.79374838,0.79374998)">
+    <rect
+       style="fill:#80c8ff;fill-opacity:1;stroke-width:0.999998;stop-color:#000000"
+       id="rect25"
+       width="18.520834"
+       height="18.520834"
+       x="1.3229166"
+       y="4.2071586" />
+    <rect
+       style="fill:#ffb380;fill-opacity:1;stroke-width:0.999998;stop-color:#000000"
+       id="rect27"
+       width="18.520834"
+       height="18.520834"
+       x="22.489582"
+       y="4.2071586" />
+    <rect
+       style="fill:#ffec80;fill-opacity:1;stroke-width:0.999998;stop-color:#000000"
+       id="rect29"
+       width="18.520834"
+       height="18.520834"
+       x="43.65625"
+       y="4.2071586" />
+    <rect
+       style="fill:#88ff80;fill-opacity:1;stroke-width:0.999998;stop-color:#000000"
+       id="rect31"
+       width="18.520834"
+       height="18.520834"
+       x="64.822922"
+       y="4.2071586" />
+    <rect
+       style="fill:#bfbfbf;fill-opacity:1;stroke-width:0.999998;stop-color:#000000"
+       id="rect33"
+       width="18.520834"
+       height="18.520834"
+       x="85.989578"
+       y="4.2071586" />
+    <rect
+       style="fill:#ff8080;fill-opacity:1;stroke-width:0.999998;stop-color:#000000"
+       id="rect35"
+       width="18.520834"
+       height="18.520834"
+       x="107.15623"
+       y="4.2071586" />
+    <rect
+       style="fill:#f555ff;fill-opacity:1;stroke-width:0.999998;stop-color:#000000"
+       id="rect37"
+       width="18.520834"
+       height="18.520834"
+       x="128.32291"
+       y="4.2071586" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2.64583;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 1.3229166,22.727992 19.84375,4.207159"
+       id="path39" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2.64583;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 22.48958,22.727992 c 7.833013,0 10.080615,-18.520833 18.520834,-18.520833"
+       id="path864"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2.64583;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 43.656252,22.727992 c 5.487116,0 8.177369,-21.405077 11.61371,-21.405077 3.436341,0 3.593229,2.884244 6.907124,2.884244"
+       id="path866"
+       sodipodi:nodetypes="czc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2.64583;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 83.343758,4.207159 c -3.313895,0 -5.132509,-9.351671 -9.260422,9.260418 -4.127913,18.612089 -5.909141,9.260416 -9.260414,9.260416"
+       id="path868"
+       sodipodi:nodetypes="czc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2.64583;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 85.98958,22.727992 c 8.336336,-1.65155 14.12979,-8.620044 18.52083,-18.520833"
+       id="path874"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2.64583;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 125.67707,4.207159 c -8.33633,1.65155 -14.12978,8.62004 -18.52083,18.52083"
+       id="path876"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2.64583;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 148.9604,4.207159 h -2.11667 V 22.727993 H 128.3229"
+       id="path878"
+       sodipodi:nodetypes="cccc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.93889px;line-height:1.25;font-family:Heebo;-inkscape-font-specification:'Heebo Medium';text-align:center;word-spacing:0px;text-anchor:middle;stroke-width:0.264583"
+       x="10.419728"
+       y="32.145691"
+       id="text882"><tspan
+         sodipodi:role="line"
+         id="tspan880"
+         x="10.419728"
+         y="32.145691"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.93889px;font-family:Heebo;-inkscape-font-specification:'Heebo Medium';text-align:center;text-anchor:middle;stroke-width:0.264583">Linear</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.93889px;line-height:1.25;font-family:Heebo;-inkscape-font-specification:'Heebo Medium';text-align:center;word-spacing:0px;text-anchor:middle;stroke-width:0.264583"
+       x="31.586393"
+       y="32.145691"
+       id="text886"><tspan
+         sodipodi:role="line"
+         id="tspan884"
+         x="31.586393"
+         y="32.145691"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.93889px;font-family:Heebo;-inkscape-font-specification:'Heebo Medium';text-align:center;text-anchor:middle;stroke-width:0.264583">Cycloid</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.93889px;line-height:1.25;font-family:Heebo;-inkscape-font-specification:'Heebo Medium';text-align:center;word-spacing:0px;text-anchor:middle;stroke-width:0.264583"
+       x="52.753063"
+       y="32.145691"
+       id="text890"><tspan
+         sodipodi:role="line"
+         id="tspan888"
+         x="52.753063"
+         y="32.145691"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.93889px;font-family:Heebo;-inkscape-font-specification:'Heebo Medium';text-align:center;text-anchor:middle;stroke-width:0.264583">Spring</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.93889px;line-height:1.25;font-family:Heebo;-inkscape-font-specification:'Heebo Medium';text-align:center;word-spacing:0px;text-anchor:middle;stroke-width:0.264583"
+       x="73.919731"
+       y="32.145691"
+       id="text894"><tspan
+         sodipodi:role="line"
+         id="tspan892"
+         x="73.919731"
+         y="32.145691"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.93889px;font-family:Heebo;-inkscape-font-specification:'Heebo Medium';text-align:center;text-anchor:middle;stroke-width:0.264583">Click</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.93889px;line-height:1.25;font-family:Heebo;-inkscape-font-specification:'Heebo Medium';text-align:center;word-spacing:0px;text-anchor:middle;stroke-width:0.264583"
+       x="95.086388"
+       y="32.145691"
+       id="text898"><tspan
+         sodipodi:role="line"
+         id="tspan896"
+         x="95.086388"
+         y="32.145691"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.93889px;font-family:Heebo;-inkscape-font-specification:'Heebo Medium';text-align:center;text-anchor:middle;stroke-width:0.264583">Accel</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.93889px;line-height:1.25;font-family:Heebo;-inkscape-font-specification:'Heebo Medium';text-align:center;word-spacing:0px;text-anchor:middle;stroke-width:0.264583"
+       x="116.25303"
+       y="32.145691"
+       id="text902"><tspan
+         sodipodi:role="line"
+         id="tspan900"
+         x="116.25303"
+         y="32.145691"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.93889px;font-family:Heebo;-inkscape-font-specification:'Heebo Medium';text-align:center;text-anchor:middle;stroke-width:0.264583">Damped</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.93889px;line-height:1.25;font-family:Heebo;-inkscape-font-specification:'Heebo Medium';text-align:center;word-spacing:0px;text-anchor:middle;stroke-width:0.264583"
+       x="137.41971"
+       y="32.145691"
+       id="text906"><tspan
+         sodipodi:role="line"
+         id="tspan904"
+         x="137.41971"
+         y="32.145691"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.93889px;font-family:Heebo;-inkscape-font-specification:'Heebo Medium';text-align:center;text-anchor:middle;stroke-width:0.264583">Sudden</tspan></text>
+  </g>
+</svg>

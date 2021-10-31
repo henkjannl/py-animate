@@ -166,7 +166,7 @@ def Model(FileName, SheetName):
             import ffmpeg
             stream = ffmpeg.input('Frames\Frame%05d.png')
             stream = ffmpeg.output(stream, Main.Movie)
-            stream.overwrite_output()
+            stream = ffmpeg.overwrite_output(stream)
             ffmpeg.run(stream)
         except Exception as e:
             print('Problem when creating the movie, perhaps ffmpeg is not installed')

@@ -286,7 +286,7 @@ class Script():
                     self.Items[itemname].Properties[command].Append(time, value)
 
 
-                elif command in ['XMOVE', 'YMOVE', 'SXMOVE', 'SYMOVE', 'RMOVE']:
+                elif command in ['XMOVE', 'YMOVE', 'SXMOVE', 'SYMOVE', 'RMOVE', 'OMOVE']:
 
                     # Determine linear or cycloid movement
                     assert sh.cell(rowx=Row,colx=2).ctype==xlrd.XL_CELL_TEXT, \
@@ -416,7 +416,7 @@ class Script():
                                     xpos = sh.cell(rowx=Row,colx=Col).value
                                     self.Items[itemname].Properties[command].Append(time, xpos)
 
-                            elif command in ['XMOVE', 'YMOVE', 'SXMOVE', 'SYMOVE', 'RMOVE']:
+                            elif command in ['XMOVE', 'YMOVE', 'SXMOVE', 'SYMOVE', 'RMOVE', 'OMOVE']:
                                 # Determine type of movement
                                 if sh.cell(rowx=Row,colx=Col).ctype==xlrd.XL_CELL_TEXT:
                                     move = sh.cell(rowx=Row,colx=Col).value.strip().upper()
@@ -565,15 +565,21 @@ class Script():
 
                 Item = self.Items[itemname]
 
-                opacity = Item.Properties['OPACITY' ].Value(Time, LINEAR)
+                move    = Item.Properties['OMOVE'   ].Value(Time)
+                opacity = Item.Properties['OPACITY' ].Value(Time, move)
+
                 move    = Item.Properties['XMOVE'   ].Value(Time)
                 xpos    = Item.Properties['XPOS'    ].Value(Time, move)
+
                 move    = Item.Properties['YMOVE'   ].Value(Time)
                 ypos    = Item.Properties['YPOS'    ].Value(Time, move)
+
                 move    = Item.Properties['SXMOVE'  ].Value(Time)
                 sx      = Item.Properties['XSCALE'  ].Value(Time, move)
+
                 move    = Item.Properties['SYMOVE'  ].Value(Time)
                 sy      = Item.Properties['YSCALE'  ].Value(Time, move)
+
                 move    = Item.Properties['RMOVE'   ].Value(Time)
                 rot     = Item.Properties['ROTATION'].Value(Time, move)
 

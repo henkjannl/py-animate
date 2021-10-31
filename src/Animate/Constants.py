@@ -1,18 +1,18 @@
 import math
 
 # Item types
-IT_BASE     = "BAS"
-IT_IMAGE    = "IMG"
-IT_CANVAS   = "CNV"
-IT_MASK     = "MSK"
-IT_TEXT     = "TXT"
-IT_ASSY     = "ASS"
+IT_BASE   = "BAS"
+IT_IMAGE  = "IMG"
+IT_CANVAS = "CNV"
+IT_MASK   = "MSK"
+IT_TEXT   = "TXT"
+IT_ASSY   = "ASS"
 
 # Commands
 ScriptCommands         = ['WIDTH', 'HEIGHT', 'FRAMESPERSECOND', 'FIRSTFRAME', 'LASTFRAME', 'SHOWTIME', 'HIDETIME', 
                           'TIMEOFFSET', 'TABLE', 'SCRIPT']
 AnalogProperties       = ['XPOS', 'YPOS', 'XPOLE', 'YPOLE', 'XSCALE', 'YSCALE', 'ROTATION', 'OPACITY']
-MoveCommands           = ['XMOVE', 'YMOVE', 'SXMOVE', 'SYMOVE', 'RMOVE']
+MoveCommands           = ['XMOVE', 'YMOVE', 'SXMOVE', 'SYMOVE', 'RMOVE', 'OMOVE']
 ZorderCommands         = ['BRINGTOFRONT', 'SENDTOBACK']
 AnalogTextProperties   = ['TEXTSIZE']
 DiscreteTextProperties = ['TEXTCOLOR', 'FONT']
@@ -34,13 +34,15 @@ SPRING  = 2
 CLICK   = 3
 ACCEL   = 4
 DAMPED  = 5
+SUDDEN  = 6
 
-CheckMove = {   'LINEAR' :    LINEAR,
-                'CYCLOID':    CYCLOID,
-                'SPRING' :    SPRING,
-                'CLICK'  :    CLICK,
-                'ACCEL'  :    ACCEL,
-                'DAMPED' :    DAMPED  }
+CheckMove = {   'LINEAR' : LINEAR,
+                'CYCLOID': CYCLOID,
+                'SPRING' : SPRING,
+                'CLICK'  : CLICK,
+                'ACCEL'  : ACCEL,
+                'DAMPED' : DAMPED,
+                'SUDDEN' : SUDDEN   }
 
 # Types and default values for all properties
 DISCRETE = 0
@@ -59,6 +61,7 @@ DEFAULTVALUES = [   ('XPOS'      , ANALOG  , 0             ),
                     ('XPOLE'     , ANALOG  , 0             ),
                     ('YPOLE'     , ANALOG  , 0             ),
                     ('OPACITY'   , ANALOG  , 1             ),
+                    ('OMOVE'     , DISCRETE, LINEAR        ),
                     ('TIMEOFFSET', ANALOG  , 0             ),
                     ('IMAGE'     , DISCRETE, ''            ),
                     ('CANVAS'    , DISCRETE, ''            ),
@@ -90,6 +93,14 @@ def Displacement(interpolation, x):
 
     elif interpolation == DAMPED:
         return 1-(1-x)**2
+
+    elif interpolation == SUDDEN:
+        if x<1:
+            return 0
+        else:
+            return 1
+
+
 
 
 
