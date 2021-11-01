@@ -40,9 +40,6 @@ class Item(object):
         # Create all properties
         for name, kind, default in DEFAULTVALUES:
             
-            if name=='OMOVE':
-                print('OMOVE')
-
             if kind == DISCRETE:
                 self.Properties[name] = DiscreteProperty()
             else:
