@@ -1,8 +1,16 @@
 # Example 6: Bulldozer with bucket
 
-In the main script, the global movement of the bulldozer is taken care of. In fact, the main script had only a minor change compared to example 1: instead of declaring the bulldozer as an `IMAGE`, it was now declared as an `ASSEMBLY`.
+![Moving bulldozer](bulldozer_bucket.gif)
+
+In the main script, the global movement of the bulldozer, cloud and heap are still controlled by a `TABLE`. 
+
+However, the bulldozer itself is now no longer an `IMAGE`, it has been replaced by an `ASSEMBLY` 'bulldozer'.
 
 ![Moving bulldozer main](Design/bulldozer_bucket_main.png)
+
+The hierarchy of the animation is defined as follows:
+
+![Bulldozer hierarchy](Design/bulldozer_bucket_hierarchy.png)
 
 In the definition of the `ASSEMBLY` of the bulldozer, the bulldozer itself is drawn with the rotating wheel and bucket on it. 
 
@@ -10,10 +18,6 @@ The `ASSEMBLY` is made up of the following items:
 
 ![Bulldozer assembly items](Design/bulldozer_bucket_items.png)
 
-The items are tied together as follows:
+Because the movements of the bucket and the wheel are quite simple, they are controlled within the 'Bulldozer' `SCRIPT`:
 
 ![Bulldozer assembly](Design/bulldozer_bucket_assembly.png)
-
-The result looks like this:
-
-![Moving bulldozer](bulldozer_bucket.gif)
