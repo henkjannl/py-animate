@@ -38,10 +38,8 @@ Animate heavily relies on open source software such as Python, the Python Imagin
   - [Properties common to all items](#properties-common-to-all-items)
   - [Coordinate system](#coordinate-system)
     - [Scaling, rotating and the pole](#scaling-rotating-and-the-pole)
-  - [Speed modifiers](#speed-modifiers)
-- [`BRINGTOFRONT` and `SENDTOBACK`](#bringtofront-and-sendtoback)
-- [Using a `TABLE` more than once](#using-a-table-more-than-once)
-- [Using the main script at a lower `ASSEMBLY`](#using-the-main-script-at-a-lower-assembly)
+    - [Speed modifiers](#speed-modifiers)
+  - [`BRINGTOFRONT` and `SENDTOBACK`](#bringtofront-and-sendtoback)
 - [Known issues](#known-issues)
 - [To do for future versions](#to-do-for-future-versions)
 
@@ -84,6 +82,8 @@ Remarks:
 
 
 # List of examples
+
+An overview of all examples is given in [overview examples](examples/README.md).
 
 The examples are provided for inspiration:
 
@@ -339,7 +339,7 @@ In [Example 4](examples/04-rotating-text/Readme.md), the `TEXT`, `XPOLE` and `YP
 <br>
 
 
-## Speed modifiers
+### Speed modifiers
 
 Transitions for `XPOS`, `YPOS`, `ROTATION`, `XSCALE`, `YSCALE` and `OPACITY` can be made smoother by using their respective speed modifiers:
 
@@ -374,7 +374,7 @@ Remarks:
 
 <br>
 
-# `BRINGTOFRONT` and `SENDTOBACK`
+## `BRINGTOFRONT` and `SENDTOBACK`
 
 Items are ordered in a certain Z-order, meaning some items are placed in front of other items. An item can be put in front of all other items using `BRINGTOFRONT`, and placed at the back using `SENDTOBACK`. 
 
@@ -383,20 +383,6 @@ Remarks:
 * The `ASSEMBLY` or `CANVAS` can also be placed in front of or behind other items in the script in which they are defined.
 
 In [Example 3](examples/03-solar-system/Readme.md), the `BRINGTOFRONT` and `SENDTOBACK` are demonstrated. 
-
-<br>
-
-# Using a `TABLE` more than once
-
-Sometimes it is useful to plan out the transformations well. In the example below, a single table is used twice on different items that both need to follow the same path. This way, duplicating information is avoided.
-
-[Example 10](examples/10-car/Readme.md) demonstrates a more complex use of the `TABLE` command, where multiple items in different scripts are controlled by a single `TABLE`.
-
-<br>
-
-# Using the main script at a lower `ASSEMBLY`
-
-Sometimes it is useful to add a higher level of hierarchy to the animation. In [Example 11](examples/11-camera/Readme.md), the original 'Main' `SCRIPT` of the previous example is now renamed 'Map'. In the new script, this `SCRIPT` is used twice: once in an `ASSEMBLY` named 'FixedMap', which is used in the same way as the original example, and once in another `ASSEMBLY` named 'Radar'. The 'Radar' `ASSEMBLY` acts as a small camera inset, showing where the car is driving on the map. Still, all motion is controlled by a single `TABLE` called 'Route'.
 
 <br>
 
