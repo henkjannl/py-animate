@@ -1,7 +1,7 @@
 Metadata-Version: 2.1
 Name: py-animate
-Version: 1.0.5
-Summary: Create 2D animations, movies and animated gifs
+Version: 1.0.6
+Summary: Animate is an interpreter written in Python which reads commands from an Excel file and some bitmap images and composes an animation with these commands. It can make simple animations, but also much more complex ones. No Python knowledge is needed to use the library.
 Home-page: https://github.com/henkjannl/py-animate.git
 Author: HenkJan van der Pol
 Author-email: henkjannospam@gmail.com
