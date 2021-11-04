@@ -2,7 +2,10 @@
 
 Animate is an interpreter written in Python which reads commands from an Excel file and some bitmap images and composes an animation  with these commands. It can make simple animations, but also much more complex ones. No Python knowledge is needed to use the library. An overview of what animate can do can be found in the [overview of examples](examples/README.md).
 
-<img src="examples/12-sewing-machine/SewingMachine.gif" alt="drawing" width="400"/>
+
+<p align="center">
+  <img src="examples/12-sewing-machine/SewingMachine.gif" alt="drawing" width="500">
+</p>
 
 Features:
 * it can smoothly modify location, rotation, scale and opacity of many images in parallel
