@@ -164,7 +164,7 @@
      inkscape:cx="170.52783"
      inkscape:cy="1562.2892"
      inkscape:document-units="px"
-     inkscape:current-layer="layer11"
+     inkscape:current-layer="layer7"
      showgrid="false"
      inkscape:object-nodes="true"
      inkscape:window-width="1920"
@@ -1907,7 +1907,7 @@
       <path
          id="path378"
          style="display:inline;fill:#ffcdcd;stroke:none;stroke-width:2;stroke-linecap:square;stop-color:#000000"
-         d="m 479.62635,2951.1549 c -22.8061,0 -41.166,18.3599 -41.166,41.166 v 236.0156 c 0,22.8061 18.3599,41.166 41.166,41.166 h 105.8555 c 22.8061,0 41.166,-18.3599 41.166,-41.166 v -22.834 h 214.8418 c 22.8061,0 41.166,-18.3599 41.166,-41.166 v -172.0156 c 0,-22.8061 -18.3599,-41.166 -41.166,-41.166 z"
+         d="m 479.62635,2951.1549 c -22.8061,0 -41.166,18.3599 -41.166,41.166 v 236.0156 c 0,22.8061 18.3599,41.166 41.166,41.166 h 115.8555 c 22.8061,0 41.166,-18.3599 41.166,-41.166 v -22.834 h 204.8418 c 22.8061,0 41.166,-18.3599 41.166,-41.166 v -172.0156 c 0,-22.8061 -18.3599,-41.166 -41.166,-41.166 z"
          sodipodi:nodetypes="sccssscsssss"
          inkscape:export-xdpi="28.88731"
          inkscape:export-ydpi="28.88731" />
@@ -3637,7 +3637,7 @@
       <text
          xml:space="preserve"
          style="font-weight:bold;font-size:62.5198px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:'Calibri Bold';text-align:start;word-spacing:0px;text-anchor:start;display:inline;stroke-width:2.00264"
-         x="457.90869"
+         x="463.91052"
          y="3240.584"
          id="text382"
          inkscape:export-xdpi="28.88731"
@@ -3645,7 +3645,7 @@
          transform="scale(0.9996948,1.0003053)"><tspan
            sodipodi:role="line"
            id="tspan380"
-           x="457.90869"
+           x="463.91052"
            y="3240.584"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:62.5198px;font-family:Calibri;-inkscape-font-specification:Calibri;text-align:start;text-anchor:start;stroke-width:2.00264">tracks</tspan></text>
       <text

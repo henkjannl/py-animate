@@ -63,17 +63,17 @@ The motion of the car is calculated as follows:
 The movements of the car are planned like this:
 
 | Trajectory | Movement |
-|------------|----------|
-| A to B | `XPOS` changes from 120 to 580 while `YPOS` remains constant at 36 |
-| B to C | The car turns around the red pole. `ROTATION` changes from  0° to -90° <br> The location remains the same. |
-| C to D | `YPOS` changes from 36 to 263 |
-| D to E | The `ROTATION` changes from -90° to -180° |
-| E to F | The `XPOS` changes from 580 to 343 |
-| F to G | The `ROTATION` changes from -180° to -90° ||
-| at G   | We must change from the red pole (32,150) to the blue pole (32,-75). <br> Since the car is rotated 180°, we must modify the `XPOS` and `YPOS` too to keep the car in the same location <br> Therefore, at the same time the location changes from (343,263) to (568,488) |
-| G to H | The `YPOS` changes from 488 to 463 |
-| H to I | The `ROTATION` changes from -90° to -180° |
-| I to J | The `XPOS` changes from 568 to 434 to move the car to the front porch of the house |
+|:----------:|----------|
+|   A to B   | `XPOS` changes from 120 to 580 while `YPOS` remains constant at 36 |
+|   B to C   | The car turns around the red pole. `ROTATION` changes from  0° to -90° <br> The location remains the same. |
+|   C to D   | `YPOS` changes from 36 to 263 |
+|   D to E   | The `ROTATION` changes from -90° to -180° |
+|   E to F   | The `XPOS` changes from 580 to 343 |
+|   F to G   | The `ROTATION` changes from -180° to -90° ||
+|   at G     | We must change from the red pole (32,150) to the blue pole (32,-75). <br> Since the car is rotated 180°, we must modify the `XPOS` and `YPOS` too to keep the car in the same location <br> Therefore, at the same time the location changes from (343,263) to (568,488) |
+|   G to H   | The `YPOS` changes from 488 to 463 |
+|   H to I   | The `ROTATION` changes from -90° to -180° |
+|   I to J   | The `XPOS` changes from 568 to 434 to move the car to the front porch of the house |
 
 The 'route' `TABLE` controls all movements and rotations:
 
