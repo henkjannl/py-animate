@@ -1,14 +1,13 @@
-import os
-import time
-
-# www.lexicon.net/sjmachin/xlrd.html
-import xlrd
-
-import logging
+import pandas as pd
 
 from PIL import Image # www.pythonware.com/library/pil/handbook
 from PIL import ImageFont, ImageDraw, ImageEnhance
 from PIL import ImageFilter
+
+import os
+#import time
+import logging
+
 
 from Animate.Items import *
 from Animate.Properties import *
@@ -30,6 +29,23 @@ def SelectFont(Directories, Fonts):
             
     print('All attempts to load fonts failed')
 
+def isNumber(somePandasValue):
+    if pd.isnull(somePandasValue):
+        return False
+    elif isinstance(somePandasValue, int):
+        return True
+    elif isinstance(somePandasValue, float):
+        return True
+    else:
+        return False
+
+def isString(somePandasValue):
+    if pd.isnull(somePandasValue):
+        return False
+    elif isinstance(somePandasValue, str):
+        return True
+    else: 
+        return False
 
 
 class Script():
@@ -74,62 +90,60 @@ class Script():
         self.Picture         = False
         self.PictureFrame    = -1
 
-
     def ParseScript(self, FileName, SheetName):
 
         logging.debug('  Script.ParseScript(%s, %s)' % (FileName, SheetName))
 
         # Open excel file with frame data
-        wb = xlrd.open_workbook(FileName)
-        sh = wb.sheet_by_name(SheetName)
+        df = pd.read_excel(FileName, sheet_name=SheetName, header=None)
 
         print(' - parsing script %s' % SheetName)
-        for Row in range(sh.nrows):
+        for Row in range(df.shape[0]):
 
-            # A row contains frame data if the first cell contains a float
-            if sh.cell(rowx=Row,colx=0).ctype==xlrd.XL_CELL_NUMBER:
+            # A row contains valid data if the first cell contains a number
+            if isNumber(df.loc[Row,0]):
 
-                time    = sh.cell(rowx=Row,colx=0).value
-                command = sh.cell(rowx=Row,colx=1).value.upper().strip()
+                time    = df.loc[Row,0]
+                command = df.loc[Row,1].upper().strip()
 
                 if self.MaxTime<time: self.MaxTime=time
 
                 if command == 'WIDTH':
                     # Determine the width of the output frames
-                    assert sh.cell(rowx=Row,colx=2).ctype==xlrd.XL_CELL_NUMBER, \
+                    assert isNumber(df.loc[Row,2]), \
                         "%s at row %d of sheet %s expects a number" % (command, Row+1, SheetName)
 
-                    self.Width = int(sh.cell(rowx=Row,colx=2).value)
+                    self.Width = int(df.loc[Row,2])
 
                 elif command == 'HEIGHT':
                     # Determine the height of the output frames
-                    assert sh.cell(rowx=Row,colx=2).ctype==xlrd.XL_CELL_NUMBER, \
+                    assert isNumber(df.loc[Row,2]), \
                         "%s at row %d of sheet %s expects a number" % (command, Row+1, SheetName)
 
-                    self.Height = int(sh.cell(rowx=Row,colx=2).value)
+                    self.Height = int(df.loc[Row,2])
 
                 elif command == 'FRAMESPERSECOND':
                     # Sets the number of frames per second for the whole movie
-                    assert sh.cell(rowx=Row,colx=2).ctype==xlrd.XL_CELL_NUMBER, \
+                    assert isNumber(df.loc[Row,2]), \
                         "%s at row %d of sheet %s expects a number in column C" % (command, Row+1, SheetName)
 
-                    self.FramesPerSecond = sh.cell(rowx=Row,colx=2).value
+                    self.FramesPerSecond = int(df.loc[Row,2])
 
                 elif command == 'FIRSTFRAME':
                     # Determine the first frame to be processed,
                     # if not all frames must be processed. For debugging
-                    assert sh.cell(rowx=Row,colx=2).ctype==xlrd.XL_CELL_NUMBER, \
+                    assert isNumber(df.loc[Row,2]), \
                         "%s at row %d of sheet %s expects a number in column C" % (command, Row+1, SheetName)
 
-                    self.FirstFrame = sh.cell(rowx=Row,colx=2).value
+                    self.FirstFrame = int(df.loc[Row,2])
 
                 elif command == 'LASTFRAME':
                     # Determine the last frame to be processed,
                     # if not all frames must be processed. For debugging
-                    assert sh.cell(rowx=Row,colx=2).ctype==xlrd.XL_CELL_NUMBER, \
+                    assert isNumber(df.loc[Row,2]), \
                         "%s at row %d of sheet %s expects a number in column C" % (command, Row+1, SheetName)
 
-                    self.LastFrame = sh.cell(rowx=Row,colx=2).value
+                    self.LastFrame = int(df.loc[Row,2])
 
                 elif command == 'SHOWTIME':
                     # Write the time in the lower left corner of the frames, for debug purposes
@@ -141,49 +155,49 @@ class Script():
 
                 elif command == 'MOVIE':
                     # Sets the number of frames per second for the whole movie
-                    assert sh.cell(rowx=Row,colx=2).ctype==xlrd.XL_CELL_TEXT, \
+                    assert isString(df.loc[Row,2]), \
                         "%s at row %d of sheet %s expects a filename for the movie" % (command, Row+1, SheetName)
 
-                    self.Movie= sh.cell(rowx=Row,colx=2).value
-                    print("Movie {movie} will be created after generating the frames".format(movie=self.Movie))
+                    self.Movie= df.loc[Row,2]
+                    print("- movie {movie} will be created after generating the frames".format(movie=self.Movie))
 
                 elif command == 'ANIMATEDGIF':
                     # Sets the number of frames per second for the whole movie
-                    assert sh.cell(rowx=Row,colx=2).ctype==xlrd.XL_CELL_TEXT, \
+                    assert isString(df.loc[Row,2]), \
                         "%s at row %d of sheet %s expects a filename for the animated gif" % (command, Row+1, SheetName)
 
-                    self.AnimatedGIF= sh.cell(rowx=Row,colx=2).value
-                    print("Animated GIF {gif} will be created after generating the frames".format(gif=self.AnimatedGIF))
+                    self.AnimatedGIF= df.loc[Row,2]
+                    print("- animated GIF {gif} will be created after generating the frames".format(gif=self.AnimatedGIF))
 
                 elif command == 'TABLE':
                     # Do not create a new script object, but import the commands in the current script
-                    assert sh.cell(rowx=Row,colx=2).ctype==xlrd.XL_CELL_TEXT, \
+                    assert isString(df.loc[Row,2]), \
                         "%s at row %d of sheet %s expects a string for the table name" % (command, Row+1, SheetName)
 
-                    sheetname = sh.cell(rowx=Row,colx=2).value.strip()
+                    sheetname = df.loc[Row,2].strip()
                     self.ParseTable(self.FileName, sheetname)
 
                 elif command == 'SCRIPT':
                     # Do not create a new script object, but import the commands in the current script
 
-                    assert sh.cell(rowx=Row,colx=2).ctype==xlrd.XL_CELL_TEXT, \
+                    assert isString(df.loc[Row,2]), \
                         "%s at row %d of sheet %s expects a string for the script name" % (command, Row+1, SheetName)
 
-                    sheetname = sh.cell(rowx=Row,colx=2).value.strip()
+                    sheetname = df.loc[Row,2].strip()
 
                     self.ParseScript(self.FileName, sheetname)
 
                 elif command == 'ASSEMBLY':
                     # Create a new script object and use the image created by this
                     # script as feed for this item
-                    assert sh.cell(rowx=Row,colx=2).ctype==xlrd.XL_CELL_TEXT, \
+                    assert isString(df.loc[Row,2]), \
                         "%s at row %d of sheet %s expects a string for the assembly name" % (command, Row+1, SheetName)
 
-                    assert sh.cell(rowx=Row,colx=3).ctype==xlrd.XL_CELL_TEXT, \
+                    assert isString(df.loc[Row,3]), \
                         "%s at row %d of sheet %s expects a string for the sheet name" % (command, Row+1, SheetName)
 
-                    itemname = sh.cell(rowx=Row,colx=2).value.upper().strip()
-                    sheetname = sh.cell(rowx=Row,colx=3).value
+                    itemname  = df.loc[Row,2].upper().strip()
+                    sheetname = df.loc[Row,3]
 
                     # If the script is not yet in the list, create it
                     if not sheetname in self.ScriptList:
@@ -200,14 +214,14 @@ class Script():
                 elif command == 'CANVAS':
                     # A canvas is an assembly of which the background is not reset for a new frame
 
-                    assert sh.cell(rowx=Row,colx=2).ctype==xlrd.XL_CELL_TEXT, \
+                    assert isString(df.loc[Row,2]), \
                         "%s at row %d of sheet %s expects a string for the item tag" % (command, Row+1, SheetName)
 
-                    assert sh.cell(rowx=Row,colx=3).ctype==xlrd.XL_CELL_TEXT, \
+                    assert isString(df.loc[Row,3]), \
                         "%s at row %d of sheet %s expects a string for the sheet name" % (command, Row+1, SheetName)
 
-                    itemname = sh.cell(rowx=Row,colx=2).value.upper().strip()
-                    sheetname = sh.cell(rowx=Row,colx=3).value
+                    itemname  = df.loc[Row,2].upper().strip()
+                    sheetname = df.loc[Row,3]
 
                     # If the script is not yet in the list, create it
                     if not sheetname in self.ScriptList:
@@ -223,14 +237,14 @@ class Script():
 
                 elif command == 'IMAGE':
                     # Assign a new filename for an image item
-                    assert sh.cell(rowx=Row,colx=2).ctype==xlrd.XL_CELL_TEXT, \
-                        "%s at row %d of sheet %s expects a string for the item tag" % (command, Row+1, SheetName)
+                    assert isString(df.loc[Row,2]), \
+                        "%s at row %d of sheet %s expects a string for the item name" % (command, Row+1, SheetName)
 
-#                    assert sh.cell(rowx=Row,colx=3).ctype==xlrd.XL_CELL_TEXT, \
-#                        "%s at row %d expects a string for the filename" % (command, Row+1)
+                    assert isString(df.loc[Row,3]), \
+                        "%s at row %d of sheet %s expects a string for the filename" % (command, Row+1, SheetName)
 
-                    itemname = sh.cell(rowx=Row,colx=2).value.upper().strip()
-                    filename = os.path.join(self.ImageDir, sh.cell(rowx=Row,colx=3).value)
+                    itemname = df.loc[Row,2].upper().strip()
+                    filename = os.path.join(self.ImageDir, df.loc[Row,3])
 
                     assert os.path.isfile(filename), \
                         "%s at row %d could not find file %s" % (command, Row+1, filename)
@@ -241,14 +255,14 @@ class Script():
                 elif command == 'MASK':
 
                     # Assign a new filename for a mask item
-                    assert sh.cell(rowx=Row,colx=2).ctype==xlrd.XL_CELL_TEXT, \
+                    assert isString(df.loc[Row,2]), \
                         "%s at row %d of sheet %s expects a string for the item tag" % (command, Row+1, SheetName)
 
-                    assert sh.cell(rowx=Row,colx=3).ctype==xlrd.XL_CELL_TEXT, \
+                    assert isString(df.loc[Row,3]), \
                         "%s at row %d of sheet %s expects a string for the filename" % (command, Row+1, SheetName)
 
-                    itemname = sh.cell(rowx=Row,colx=2).value.upper().strip()
-                    filename = os.path.join(self.ImageDir, sh.cell(rowx=Row,colx=3).value)
+                    itemname = df.loc[Row,2].upper().strip()
+                    filename = os.path.join(self.ImageDir, df.loc[Row,3])
 
                     assert os.path.isfile(filename), \
                         "%s at row %d could not find file %s" % (command, Row+1, filename)
@@ -258,14 +272,14 @@ class Script():
 
                 elif command == 'TEXT':
                     # Assign a new title for a text item
-                    assert sh.cell(rowx=Row,colx=2).ctype==xlrd.XL_CELL_TEXT, \
+                    assert isString(df.loc[Row,2]), \
                         "%s at row %d of sheet %s expects a string in column C" % (command, Row+1, SheetName)
 
-                    assert sh.cell(rowx=Row,colx=3).ctype==xlrd.XL_CELL_TEXT, \
+                    assert isString(df.loc[Row,3]), \
                         "%s at row %d of sheet %s expects a string in column D" % (command, Row+1, SheetName)
 
-                    itemname = sh.cell(rowx=Row,colx=2).value.upper().strip()
-                    title = sh.cell(rowx=Row,colx=3).value
+                    itemname = df.loc[Row,2].upper().strip()
+                    title    = df.loc[Row,3]
 
                     self.Items[itemname].AddText( time, title )
 
@@ -274,14 +288,14 @@ class Script():
                                  'TIMEOFFSET', 'TEXTSIZE', 'OPACITY']:
 
                     # Set a new x position
-                    assert sh.cell(rowx=Row,colx=2).ctype==xlrd.XL_CELL_TEXT, \
+                    assert isString(df.loc[Row,2]), \
                         "%s at row %d of sheet %s expects an item name in column C" % (command, Row+1, SheetName)
 
-                    assert sh.cell(rowx=Row,colx=3).ctype==xlrd.XL_CELL_NUMBER, \
+                    assert isNumber(df.loc[Row,3]), \
                         "%s at row %d of sheet %s expects a number in column D" % (command, Row+1, SheetName)
 
-                    itemname = sh.cell(rowx=Row,colx=2).value.upper().strip()
-                    value = sh.cell(rowx=Row,colx=3).value
+                    itemname = df.loc[Row,2].upper().strip()
+                    value    = df.loc[Row,3]
 
                     self.Items[itemname].Properties[command].Append(time, value)
 
@@ -289,14 +303,14 @@ class Script():
                 elif command in ['XMOVE', 'YMOVE', 'SXMOVE', 'SYMOVE', 'RMOVE', 'OMOVE']:
 
                     # Determine linear or cycloid movement
-                    assert sh.cell(rowx=Row,colx=2).ctype==xlrd.XL_CELL_TEXT, \
+                    assert isString(df.loc[Row,2]), \
                         "%s at row %d of sheet %s expects a string in column C" % (command, Row+1, SheetName)
 
-                    assert sh.cell(rowx=Row,colx=3).ctype==xlrd.XL_CELL_TEXT, \
+                    assert isString(df.loc[Row,3]), \
                         "%s at row %d of sheet %s expects a string in column D" % (command, Row+1, SheetName)
 
-                    itemname = sh.cell(rowx=Row,colx=2).value.upper().strip()
-                    move = sh.cell(rowx=Row,colx=3).value.strip().upper()
+                    itemname = df.loc[Row,2].upper().strip()
+                    move     = df.loc[Row,3].strip().upper()
 
                     if move in CheckMove:
                         self.Items[itemname].Properties[command].Append(time, CheckMove[move])
@@ -305,31 +319,31 @@ class Script():
 
                 elif command in ['TEXTCOLOR', 'FONT']:
                     # Set a new text color
-                    assert sh.cell(rowx=Row,colx=2).ctype==xlrd.XL_CELL_TEXT, \
+                    assert isString(df.loc[Row,2]), \
                         "%s at row %d of sheet %s expects a string in column C" % (command, Row+1, SheetName)
 
-                    assert sh.cell(rowx=Row,colx=3).ctype==xlrd.XL_CELL_TEXT, \
+                    assert isString(df.loc[Row,3]), \
                         "%s at row %d of sheet %s expects a string in column D" % (command, Row+1, SheetName)
 
-                    itemname = sh.cell(rowx=Row,colx=2).value.upper().strip()
-                    textcolor = sh.cell(rowx=Row,colx=3).value.strip()
+                    itemname  = df.loc[Row,2].upper().strip()
+                    textcolor = df.loc[Row,3].strip()
                     self.Items[itemname].Properties[command].Append(time, textcolor)
 
                 elif command == 'BRINGTOFRONT':
                     # Bring the item to front at this time position
-                    assert sh.cell(rowx=Row,colx=2).ctype==xlrd.XL_CELL_TEXT, \
+                    assert isString(df.loc[Row,2]), \
                         "%s at row %d of sheet %s expects a string in column C" % (command, Row+1, SheetName)
 
-                    itemname = sh.cell(rowx=Row,colx=2).value.upper().strip()
+                    itemname = df.loc[Row,2].upper().strip()
 
                     self.Zbuffer.append( ( time, itemname, FRONT) )
 
                 elif command == 'SENDTOBACK':
                     # Send the item to back at this time position
-                    assert sh.cell(rowx=Row,colx=2).ctype==xlrd.XL_CELL_TEXT, \
+                    assert isString(df.loc[Row,2]), \
                         "%s at row %d of sheet %s expects a string in column C" % (command, Row+1, SheetName)
 
-                    itemname = sh.cell(rowx=Row,colx=2).value.upper().strip()
+                    itemname = df.loc[Row,2].upper().strip()
                     self.Zbuffer.append( ( time, itemname, BACK) )
 
                 else:
@@ -340,33 +354,31 @@ class Script():
         logging.debug('  Script.ParseTable(%s, %s)' % (FileName, SheetName))
 
         # Open excel file with frame data
-        wb = xlrd.open_workbook(FileName)
-        sh = wb.sheet_by_name(SheetName)
+        df = pd.read_excel(FileName, sheet_name=SheetName, header=None)
 
         # Investigate which data each column contains
         print(' - parsing table %s' % SheetName)
 
-        for Row in range(2, sh.nrows):
+        for Row in range(2, df.shape[0]):
 
             # Only process rows with a time in the first column
-            if sh.cell(rowx=Row,colx=0).ctype==xlrd.XL_CELL_NUMBER:
+            if isNumber(df.loc[Row,0]):
 
-                time = sh.cell(rowx=Row,colx=0).value
+                time = df.loc[Row,0]
 
+                # Increase time if the table exceeds the maximum
                 if self.MaxTime<time: self.MaxTime=time
 
-                for Col in range(1, sh.ncols):
+                for Col in range(1, df.shape[1]):
 
                     # Only process columns with an existing object in the first row and a command in the second row
-                    if     sh.cell(rowx=0,colx=Col).ctype==xlrd.XL_CELL_TEXT and \
-                        sh.cell(rowx=1,colx=Col).ctype==xlrd.XL_CELL_TEXT and \
-                        len(sh.cell(rowx=0,colx=Col).value)>0 and \
-                        len(sh.cell(rowx=1,colx=Col).value)>0:
+                    if isString(df.loc[0,Col]) and isString(df.loc[1,Col]) and\
+                       len(df.loc[0,Col])>0    and len(df.loc[1,Col])>0:
 
-                        itemname = sh.cell(rowx=0,colx=Col).value.upper().strip()
-                        command = sh.cell(rowx=1,colx=Col).value.upper().strip()
+                        itemname = df.loc[0,Col].upper().strip()
+                        command =  df.loc[1,Col].upper().strip()
 
-                        # Only process items that have already been created
+                        # Only process items that have already been created in another script
                         if itemname in self.Items:
 
                             item = self.Items[itemname]
@@ -376,9 +388,9 @@ class Script():
                                 if item.ItemType == IT_IMAGE:
 
                                     # Assign a new filename for an image item
-                                    if sh.cell(rowx=Row,colx=Col).ctype==xlrd.XL_CELL_TEXT:
+                                    if isString(df.loc[Row,Col]):
 
-                                        filename = os.path.join(self.ImageDir, sh.cell(rowx=Row,colx=Col).value)
+                                        filename = os.path.join(self.ImageDir, df.loc[Row,Col])
 
                                         assert os.path.isfile(filename), \
                                             "%s at row %d could not find file %s" % (command, Row+1, filename)
@@ -389,9 +401,9 @@ class Script():
 
                                 if self.Items[item].ItemType == IT_MASK:
                                     # Assign a new filename for an image item
-                                    if sh.cell(rowx=Row,colx=Col).ctype==xlrd.XL_CELL_TEXT:
+                                    if isString(df.loc[Row,Col]):
 
-                                        filename = os.path.join(self.ImageDir, sh.cell(rowx=Row,colx=3).value)
+                                        filename = os.path.join(self.ImageDir, df.loc[Row,Col])
 
                                         assert os.path.isfile(filename), \
                                             "%s at row %d could not find file %s" % (command, Row+1, filename)
@@ -403,23 +415,23 @@ class Script():
                                 if item.ItemType == IT_TEXT:
 
                                     # Assign a new title for a text item
-                                    if sh.cell(rowx=Row,colx=Col).ctype==xlrd.XL_CELL_TEXT:
+                                    if isString(df.loc[Row,Col]):
 
-                                        text = sh.cell(rowx=Row,colx=Col).value
+                                        text = df.loc[Row,Col]
                                         self.Items[itemname].AddText( time, text )
 
                             elif command in ['XPOS', 'YPOS', 'XPOLE', 'YPOLE', 'XSCALE', 'YSCALE', 'ROTATION', 
                                              'TIMEOFFSET', 'TEXTSIZE', 'OPACITY']:
 
                                 # Set a new float property
-                                if sh.cell(rowx=Row,colx=Col).ctype==xlrd.XL_CELL_NUMBER:
-                                    xpos = sh.cell(rowx=Row,colx=Col).value
-                                    self.Items[itemname].Properties[command].Append(time, xpos)
+                                if isNumber(df.loc[Row,Col]):
+                                    val = df.loc[Row,Col]
+                                    self.Items[itemname].Properties[command].Append(time, val)
 
                             elif command in ['XMOVE', 'YMOVE', 'SXMOVE', 'SYMOVE', 'RMOVE', 'OMOVE']:
                                 # Determine type of movement
-                                if sh.cell(rowx=Row,colx=Col).ctype==xlrd.XL_CELL_TEXT:
-                                    move = sh.cell(rowx=Row,colx=Col).value.strip().upper()
+                                if isString(df.loc[Row,Col]):
+                                    move = df.loc[Row,Col].strip().upper()
                                     if move in CheckMove:
                                         self.Items[itemname].Properties[command].Append(time, CheckMove[move])
                                     else:
@@ -427,8 +439,8 @@ class Script():
 
 
                             elif command in ['TEXTCOLOR', 'FONT']:
-                                if sh.cell(rowx=Row,colx=Col).ctype==xlrd.XL_CELL_TEXT:
-                                    textcolor = sh.cell(rowx=Row,colx=Col).value.strip()
+                                if isString(df.loc[Row,Col]):
+                                    textcolor = df.loc[Row,Col].strip()
                                     self.Items[itemname].Properties[command].Append(time, textcolor)
 
 

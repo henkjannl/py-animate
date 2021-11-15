@@ -111,7 +111,6 @@ def Model(FileName, SheetName):
 
     ## ToDo: Creating GIFs is needs to be made configurable
     animatedImages = []
-    #animatedSize = ( 800, int(800*Main.Height/Main.Width) )
     animatedSize = ( Main.Width, Main.Height )
     
 
@@ -130,7 +129,7 @@ def Model(FileName, SheetName):
         SecondsPassed = time.time() - StartTime
         SecondsToGo = SecondsPassed*(100-PercentageReady)/(PercentageReady)
 
-        print('Generating frame %05d  t=%.2f s  %.1f%% ready, %s to go' % (Frame, Time, PercentageReady, timefmt(SecondsToGo)))
+        print('Frame %05d  t=%.2f s  %.1f%% ready, %s to go' % (Frame, Time, PercentageReady, timefmt(SecondsToGo)))
 
         # Start with a white image
         Picture = Image.new("RGBA", (Main.Width,Main.Height), color = '#FFFFFF' )
