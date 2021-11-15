@@ -1,2 +1,2 @@
 from Animate import Animate
-Animate.Model('SewingMachine.xls', 'Script')
+Animate.Model('SewingMachine.xlsx', 'Script')

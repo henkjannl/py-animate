@@ -1,2 +1,2 @@
 from Animate import Animate
-Animate.Model('OpacityDemo.xls', 'Main')
+Animate.Model('OpacityDemo.xlsx', 'Main')

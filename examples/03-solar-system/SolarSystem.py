@@ -1,3 +1,3 @@
 from Animate import Animate
 
-Animate.Model('SolarSystem.xls', 'Script')
+Animate.Model('SolarSystem.xlsx', 'Script')

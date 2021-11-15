@@ -1,2 +1,2 @@
 from Animate import Animate
-Animate.Model('BouncingBalls.xls', 'Main')
+Animate.Model('BouncingBalls.xlsx', 'Main')
