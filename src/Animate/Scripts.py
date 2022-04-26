@@ -17,7 +17,7 @@ LOG_FILENAME = '__logfile.txt'
 logging.basicConfig(filename=LOG_FILENAME,level=logging.DEBUG)
 
 def SelectFont(Directories, Fonts):
-    
+
     for Font in Fonts:
         for Path in Directories:
             try:
@@ -26,7 +26,7 @@ def SelectFont(Directories, Fonts):
                 return FontName
             except:
                 logging.debug('%s not successful' % FontName )
-            
+
     print('All attempts to load fonts failed')
 
 def isNumber(somePandasValue):
@@ -44,7 +44,7 @@ def isString(somePandasValue):
         return False
     elif isinstance(somePandasValue, str):
         return True
-    else: 
+    else:
         return False
 
 
@@ -60,7 +60,7 @@ class Script():
         self.IsCanvas        = False
         self.FirstImage      = True
         self.ImageDir        = 'Pictures'
-        
+
         self.FirstFrame      = 0            # Allows the processing of a subset of frames
         self.LastFrame       = -1
         self.FramesPerSecond = 10
@@ -71,9 +71,9 @@ class Script():
         self.AnimatedGIF     = False        # Can be overridden by filename of animated gif
 
         self.MaxTime         = 0            # Largest time, retrieved from the parser
-        
+
         self.TimeOffset      = 0.0          # Script, assembly or canvas can be run with an offset to the global time
-        
+
         self.Width           = 800          # Width of the output image
         self.Height          = 600          # Height of the output image
 
@@ -127,7 +127,10 @@ class Script():
                     assert isNumber(df.loc[Row,2]), \
                         "%s at row %d of sheet %s expects a number in column C" % (command, Row+1, SheetName)
 
-                    self.FramesPerSecond = int(df.loc[Row,2])
+                    assert (df.loc[Row,2] >0 ), \
+                        "Frames per second in sheet %s at row %d should be larger than 0" % (SheetName, Row+1)
+
+                    self.FramesPerSecond = df.loc[Row,2]
 
                 elif command == 'FIRSTFRAME':
                     # Determine the first frame to be processed,
@@ -159,7 +162,7 @@ class Script():
                         "%s at row %d of sheet %s expects a filename for the movie" % (command, Row+1, SheetName)
 
                     self.Movie= df.loc[Row,2]
-                    print("- movie {movie} will be created after generating the frames".format(movie=self.Movie))
+                    print(" - movie {movie} will be created after generating the frames".format(movie=self.Movie))
 
                 elif command == 'ANIMATEDGIF':
                     # Sets the number of frames per second for the whole movie
@@ -284,7 +287,7 @@ class Script():
                     self.Items[itemname].AddText( time, title )
 
 
-                elif command in ['XPOS', 'YPOS', 'XPOLE', 'YPOLE', 'XSCALE', 'YSCALE', 'ROTATION', 
+                elif command in ['XPOS', 'YPOS', 'XPOLE', 'YPOLE', 'XSCALE', 'YSCALE', 'ROTATION',
                                  'TIMEOFFSET', 'TEXTSIZE', 'OPACITY']:
 
                     # Set a new x position
@@ -420,7 +423,7 @@ class Script():
                                         text = df.loc[Row,Col]
                                         self.Items[itemname].AddText( time, text )
 
-                            elif command in ['XPOS', 'YPOS', 'XPOLE', 'YPOLE', 'XSCALE', 'YSCALE', 'ROTATION', 
+                            elif command in ['XPOS', 'YPOS', 'XPOLE', 'YPOLE', 'XSCALE', 'YSCALE', 'ROTATION',
                                              'TIMEOFFSET', 'TEXTSIZE', 'OPACITY']:
 
                                 # Set a new float property
@@ -456,9 +459,9 @@ class Script():
         # Do some standard checks after parsing
         OK = True
         self.TimeOffsetUsed=False
-        
+
         for i in self.Items.values():
-            
+
             i.StandardChecks()
 
             if i.TimeOffsetUsed:
@@ -510,14 +513,14 @@ class Script():
 
         for item in self.Items.values():
             item.Deploy(MaxTime)
-            
+
         if not self.Zbuffer:
-            # The Zbuffer has no items because the user did not specify 
+            # The Zbuffer has no items because the user did not specify
             # any BRINGTOFRONT or SENDTOBACK commands
-            
+
             # Get the name of a random item
             itemname = list(self.Items.keys())[0]
-            
+
             self.Zbuffer.append( ( 0, itemname, FRONT) )
 
         self.Zbuffer.sort()
@@ -541,7 +544,7 @@ class Script():
         if True:
 
             logging.debug('')
-            logging.debug('* SCRIPT %s IS GENERATING FRAME %.5d at time %.2f' % (self.SheetName, Frame, Time ))            
+            logging.debug('* SCRIPT %s IS GENERATING FRAME %.5d at time %.2f' % (self.SheetName, Frame, Time ))
 
             # Start with a transparent image
             if (not self.IsCanvas) or self.FirstImage:
@@ -569,7 +572,7 @@ class Script():
                 else:
                     self.ZbufferIndex+=1
 
-                
+
             ItemPicture = Image.new("RGBA", (self.Width, self.Height), (255,0,0,0) )
 
             # Draw each item
@@ -618,7 +621,7 @@ class Script():
                         else:
                             logging.debug('  Script %s not in scriptlist!!:'% (script))
                             ItemPicture = Image.new("RGBA", (self.Width, self.Height), (255,0,0,0) )
-                            
+
                         logging.debug('  Assembly %s continues:'% (self.SheetName))
 
                     if Item.ItemType == IT_CANVAS:

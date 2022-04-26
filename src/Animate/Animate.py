@@ -10,7 +10,7 @@ try:
     os.remove(LOG_FILENAME)
 except:
     pass
-    
+
 logging.basicConfig(filename=LOG_FILENAME, filemode='w',level=logging.DEBUG)
 
 # www.pythonware.com/library/pil/handbook
@@ -33,19 +33,19 @@ def timefmt(t):
     MONTH=YEAR/12
 
     if t>=YEAR:
-        return "{:.1f} years".format(t/YEAR) 
+        return "{:.1f} years".format(t/YEAR)
     elif t>=MONTH:
-        return "{:.1f} months".format(t/MONTH) 
+        return "{:.1f} months".format(t/MONTH)
     elif t>=WEEK:
-        return "{:.1f} weeks".format(t/WEEK) 
+        return "{:.1f} weeks".format(t/WEEK)
     elif t>=DAY:
-        return "{:.1f} days".format(t/DAY) 
+        return "{:.1f} days".format(t/DAY)
     elif t>=HOUR:
-        return "{:.1f} hours".format(t/HOUR) 
+        return "{:.1f} hours".format(t/HOUR)
     elif t>=MIN:
-        return "{:.1f} min".format(t/MIN) 
+        return "{:.1f} min".format(t/MIN)
     else:
-        return "{:.1f} sec".format(t) 
+        return "{:.1f} sec".format(t)
 
 
 def Model(FileName, SheetName):
@@ -79,6 +79,7 @@ def Model(FileName, SheetName):
 
     # Get the global variables from the main script
     FramesPerSecond = Main.FramesPerSecond
+    print('Frames per second: %.3f' % FramesPerSecond)
 
     FirstFrame = int(Main.FirstFrame)
 
@@ -112,12 +113,12 @@ def Model(FileName, SheetName):
     ## ToDo: Creating GIFs is needs to be made configurable
     animatedImages = []
     animatedSize = ( Main.Width, Main.Height )
-    
+
 
     for Frame in range(FirstFrame, LastFrame):
 
         FileName='Frame%05d.png' % Frame
-        
+
         if LastFrame != FirstFrame:
             PercentageReady = 100.0 * (Frame - FirstFrame + 1) / (LastFrame - FirstFrame)
         else:
@@ -125,7 +126,7 @@ def Model(FileName, SheetName):
 
         # Check out the right time corresponding to this frame
         Time = 1.0*Frame/FramesPerSecond
-        
+
         SecondsPassed = time.time() - StartTime
         SecondsToGo = SecondsPassed*(100-PercentageReady)/(PercentageReady)
 
@@ -162,13 +163,21 @@ def Model(FileName, SheetName):
     if Main.Movie:
         try:
             print("Creating movie {movie}".format(movie=Main.Movie))
-            import ffmpeg
-            stream = ffmpeg.input('Frames\Frame%05d.png')
-            stream = ffmpeg.output(stream, Main.Movie)
-            stream = ffmpeg.overwrite_output(stream)
-            ffmpeg.run(stream)
-        except Exception as e:
-            print('Problem when creating the movie, perhaps ffmpeg is not installed')
-            print('see https://ffmpeg.org/download.html')
-            print(e)
+            #import ffmpeg
+            #stream = ffmpeg.input(os.path.join(os.getcwd(),'Frames\Frame%05d.png'))
+            #stream = ffmpeg.output(stream, Main.Movie)
+            #stream = ffmpeg.overwrite_output(stream)
+            #ffmpeg.run(stream)
 
+            # This is probably doing  ffmpeg -i Frame%05d.png -r 24 Cristallinity.mp4
+            os.system("ffmpeg -i Frames\Frame%05d.png -r 24 -y {movie}".format(movie=Main.Movie))
+
+        except Exception as e:
+            print('Problem when creating the movie, perhaps:')
+            print('- ffmpeg is not installed, see https://ffmpeg.org/download.html')
+            print('- ffmpeg-python is not installed')
+            print('Current working directory: %s' % os.getcwd())
+            print('Creating movie: %s' % Main.Movie)
+            print('Frames: %s'% os.path.join(os.getcwd(),'Frames\Frame%05d.png'))
+            print('Error message:')
+            print(e)

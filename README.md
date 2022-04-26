@@ -76,13 +76,11 @@ The following libraries must be installed:
 | `pandas`        | pip install pandas        | https://pandas.pydata.org/                 |
 | `pillow`        | pip install Pillow        | https://python-pillow.org/                 |
 | `ffmpeg`        |                           | https://ffmpeg.org/                        |
-| `ffmpeg-python` | pip install ffmpeg-python | https://github.com/kkroening/ffmpeg-python |
 
 Remarks:
-* if you are using a package installer such as Anaconda, pandas and pillow are probably already installed
+* if you are using a package installer such as Anaconda, pandas and pillow may already be installed
 * ffmpeg is only needed if video files need to be created
-* in order to use ffmpeg, the ffmpeg library itself first needs to be installed on the system
-* ffmpeg-python is a python binder to ffmpeg. Please make sure ffmpeg-python is spelled correctly, there are various similar libraries with different spelling
+* ffmpeg must be installed such that it is accessible from the command line (i.e. added to the PATH)
 
 
 # List of examples
@@ -401,7 +399,7 @@ In [Example 3](examples/03-solar-system/Readme.md), the `BRINGTOFRONT` and `SEND
 
 * .xlsx not yet supported, only .xls
 * if `OPACITY` is less than 100% or a `MASK` is not white or black, or an `IMAGE` has partial transparency, a red shade may occur. This is probably something in Pillow 
-* `MOVIE` is not always working well. `.mp4` seems to work better than `.mpeg`, but in both cases the result does not seem to be reliable. VLC media player can be used to convert a buggy `.mp4` into one that is accepted by other viewers. An issue is posted at [ffmpeg-python](https://github.com/kkroening/ffmpeg-python/issues/606#issue-1034399324) 
+* `MOVIE` is not always working well. `.mp4` seems to work better than `.mpeg`, but in both cases the result does not seem to be reliable. VLC media player can be used to convert a buggy `.mp4` into one that is accepted by other viewers such as Microsoft Powerpoint. An issue is posted at [ffmpeg-python](https://github.com/kkroening/ffmpeg-python/issues/606#issue-1034399324) 
 * `MOVIE` and `ANIMATEDGIF` do not support the `FRAMERATE`
 * Font support is not system independent
 
