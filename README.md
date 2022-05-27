@@ -402,6 +402,7 @@ In [Example 3](examples/03-solar-system/Readme.md), the `BRINGTOFRONT` and `SEND
 * `MOVIE` is not always working well. `.mp4` seems to work better than `.mpeg`, but in both cases the result does not seem to be reliable. VLC media player can be used to convert a buggy `.mp4` into one that is accepted by other viewers such as Microsoft Powerpoint. An issue is posted at [ffmpeg-python](https://github.com/kkroening/ffmpeg-python/issues/606#issue-1034399324) 
 * `MOVIE` and `ANIMATEDGIF` do not support the `FRAMERATE`
 * Font support is not system independent
+* The `ffmpeg` library does seem to have some bugs. It produces video, but the video cannot always be displayed on all devices or it may look suboptimal. Use VLC player to convert the video to something else that does not have these flaws. 
 
 <br>
 
